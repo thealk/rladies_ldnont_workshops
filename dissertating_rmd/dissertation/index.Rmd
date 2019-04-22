@@ -1,4 +1,5 @@
 --- 
+output_dir: "docs"
 bibliography: references.bib
 output:
   bookdown::pdf_book:
