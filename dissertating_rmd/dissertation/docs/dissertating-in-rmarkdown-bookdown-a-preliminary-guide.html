@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 3 RMarkdown crash course | bookdown-demo.utf8.md</title>
+  <title>Chapter 2 Dissertating in RMarkdown + Bookdown: A preliminary guide | dissertating_rmd.utf8.md</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown  and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 3 RMarkdown crash course | bookdown-demo.utf8.md" />
+  <meta property="og:title" content="Chapter 2 Dissertating in RMarkdown + Bookdown: A preliminary guide | dissertating_rmd.utf8.md" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 RMarkdown crash course | bookdown-demo.utf8.md" />
+  <meta name="twitter:title" content="Chapter 2 Dissertating in RMarkdown + Bookdown: A preliminary guide | dissertating_rmd.utf8.md" />
   
   
   
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="intro.html">
-<link rel="next" href="methods.html">
+<link rel="next" href="crashcourse.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -123,11 +123,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Dissertating in RMarkdown + Bookdown: A preliminary guide</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i><b>1.1</b> Prerequisites</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#process"><i class="fa fa-check"></i><b>2.1</b> My process</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="dissertating-in-rmarkdown-bookdown-a-preliminary-guide.html"><a href="dissertating-in-rmarkdown-bookdown-a-preliminary-guide.html"><i class="fa fa-check"></i><b>2</b> Dissertating in RMarkdown + Bookdown: A preliminary guide</a><ul>
+<li class="chapter" data-level="2.1" data-path="dissertating-in-rmarkdown-bookdown-a-preliminary-guide.html"><a href="dissertating-in-rmarkdown-bookdown-a-preliminary-guide.html#setting-up"><i class="fa fa-check"></i><b>2.1</b> Setting up</a></li>
+<li class="chapter" data-level="2.2" data-path="dissertating-in-rmarkdown-bookdown-a-preliminary-guide.html"><a href="dissertating-in-rmarkdown-bookdown-a-preliminary-guide.html#process"><i class="fa fa-check"></i><b>2.2</b> My process</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="crashcourse.html"><a href="crashcourse.html"><i class="fa fa-check"></i><b>3</b> RMarkdown crash course</a></li>
 <li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a><ul>
@@ -190,22 +189,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="crashcourse" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> RMarkdown crash course</h1>
-<p><em>But first: A crash course in RMarkdown</em></p>
-<p>In Spring 2018 at R-Ladies #LdnOnt we practiced making a <a href="https://github.com/rladies/meetup-presentations_london_ontario/tree/master/2018-03-06_rmarkdown">manuscript using RMarkdown</a> (<a href="http://rpubs.com/thealk/368020">slides</a>).
-Today we will up the ante and write a whole<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> dissertation using RMarkdown!</p>
-<p><code>bookdown</code> is a brilliant R package designed to incorporate multiple RMarkdown files into a single final product, a book. But <code>bookdown</code> is not just for books:</p>
-<blockquote>
-<p>Despite the package name containing the word “book”, bookdown is not only for books. The “book” can be anything that consists of multiple R Markdown documents meant to be read in a linear sequence, such as course handouts, study notes, a software manual, a thesis, or even a diary. <a href="https://bookdown.org/yihui/bookdown/">From the bookdown preface</a></p>
-</blockquote>
-<p><strong>Get up and running with RMarkdown and R Projects: Do exercise 1 in Section <a href="exercises.html#ex1">5.1</a></strong></p>
-
+<div id="dissertating-in-rmarkdown-bookdown-a-preliminary-guide" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Dissertating in RMarkdown + Bookdown: A preliminary guide</h1>
+<p>This tutorial was last updated: 21 April, 2019</p>
+<p>This is a non-exhaustive guide to writing your dissertation using <code>RMarkdown</code> and <code>Bookdown</code>.
+Specifically, it will walk you through <em>one method</em> of organziing, writing, and rendering a dissertation with these tools, using an adapted version of the <a href="https://www.uwo.ca/">Western University</a> <a href="https://grad.uwo.ca/academics/thesis/formatting.html">thesis templates</a>.
+This tutorial was written by me, <a href="https://theaknowles.com/">Thea Knowles</a>. At the time of writing, I am currently in the throes of dissertating. This means that there are likely several details I haven’t quite hammered out yet, or techniques I’ve missed. In the last year and a half, I’ve been collecting other people’s tutorials and resources on using RMarkdown + for the purposes of using it to write a dissertation. The final product is my interpretation of these resources, adapted to my needs, and presented here as a <em>“What-I’ve-learned-so-far”</em>-style tutorial.</p>
+<div id="setting-up" class="section level2">
+<h2><span class="header-section-number">2.1</span> Setting up</h2>
+<p>In order to use this tutorial, you need the following:</p>
+<ul>
+<li><a href="https://www.r-project.org/">R</a></li>
+<li><a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a>
+<ul>
+<li>Recent versions of RStudio also include <a href="">Pandoc</a>, which is required to compile documents</li>
+</ul></li>
+<li>Latex for <a href="https://tug.org/mactex/mactex-download.html">Mac</a> or <a href="https://miktex.org/download">Windows</a> (if you want to compile to PDF).
+<ul>
+<li>Alternatively, install <a href="https://yihui.name/tinytex/">TinyTex</a>, the Latex distribution created and recommended by Yihui Xie, creator of RMarkdown and bookdown<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</li>
+</ul></li>
+</ul>
+<ul>
+<li>R packages:</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(devtools))
+  <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>)
+<span class="kw">install.packages</span>(<span class="st">&quot;knitr&quot;</span>)</code></pre>
+</div>
+<div id="process" class="section level2">
+<h2><span class="header-section-number">2.2</span> My process</h2>
+<ol start="0" style="list-style-type: decimal">
+<li><p>✏️
+Keep notes in a separate bookdown project. This also helped me cut my teeth on bookdown, and made my notes wayyyyy easier to sift through than previous attempts (Google Docs, actual notebooks, txt files, readmes… I have found a lot of ways to flail)</p></li>
+<li><p>🗒
+Get some data in a .csv file</p></li>
+<li><p>🧹
+R file #1: load, tidy, and explore data</p></li>
+<li><p>📈
+R file #2: stats and prep data for use in text, sourcing the work done in R file #1.</p></li>
+<li><p>📖
+Rmd file: Write up results! Figures coded in text. Stats reported from final models defined in R file #2, with help from predefined functions and code snippets.</p>
+<ul>
+<li>This does not have to be a complete chapter. It can be part of a chapter. How modular you want to get is really up to you.</li>
+</ul></li>
+<li><p>💻
+Preview dissertation for myself in an .html format (compiles faster, easier to navigate, and I save it to my Chrome bookmarks for quick access)</p></li>
+<li><p>📝
+Preview multiple .Rmd files in Word to send to my supervisor as .docx</p>
+<ul>
+<li><code>previews/tmp_preview.Rmd</code> uses <code>child</code> files to knit together a subset of my .Rmd files to send to my supervisor</li>
+<li>There is also a “preview” function with Bookdown, but I haven’t been using this (you could though!)</li>
+</ul></li>
+<li><p>📚
+When happy, compile the whole dissertation with what I have so far</p>
+<ul>
+<li>Ensures that I am able to notice and fix any compiling errors at the interim stages and makes me feel like I am making real progress</li>
+</ul></li>
+</ol>
+</div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="2">
-<li id="fn2"><p>More like a smidgin than a whole, really.<a href="crashcourse.html#fnref2" class="footnote-back">↩</a></p></li>
+<ol start="1">
+<li id="fn1"><p>TinyTex is probably the best way to go because Yihui always anticipates the problems we will run into, but I personally have not used it.<a href="dissertating-in-rmarkdown-bookdown-a-preliminary-guide.html#fnref1" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -214,7 +261,7 @@ Today we will up the ante and write a whole<a href="#fn2" class="footnote-ref" i
         </div>
       </div>
 <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="crashcourse.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

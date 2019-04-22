@@ -1,0 +1,80 @@
+# Nitty gritty stuff
+
+
+In descending order of messiness (i.e., how confused I get)[^2]
+
+[^2]: Some of my confusion may be because I haven't had to try hard to figure it out yet, and not necessarily related to the actual detail itself
+
+- Reference management + citations
+- Notes to self within text
+- Snippets! `r emo::ji("two_hearts")`
+- Predefined functions
+- Footnotes
+- Cross-referencing sections/figs/tables
+- Figure/table autonumbering
+- Tables in RMarkdown
+  - Specifically when working with both .docx and .pdf
+- Appendices
+
+
+
+## Other resources
+- Other Rmd + bookdown resources
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6)
+```
+
+## Dissertating in Bookdown
+### Essential ingredients
+- `index.Rmd`: Contains your YAML that will tell bookdown how to render your book
+- `.Rmd` files that comprise the body of your book. These can be specific chapters, but can also be constructed modularly in whatever way you choose. 
+  - Unless specifically told otherwise, bookdown will compile these in *alphanumeric order*, so they should be named in the order you want them to appear. 
+    - In a nutshell, file names should be **machine readable, human readable, and play well with default ordering** [(thank you, Jenny Bryan)](https://speakerdeck.com/jennybc/how-to-name-files).
+
+  
+### Non-essential but very helpful ingredients
+
+- A `.bib` file contianing your references
+- Separate directories containing your:
+  - data (raw .csv files, etc)
+  - scripts (helper `.R` scripts that contain the bulk work of your analyses)
+  - images that are not created in R
+- **Template documents** that will provide bookdown with the information it needs to style your document
+  - **Word**: `uwo_thesis_template.docx` is a Word document containing the style settings required to output a Western-approved thesis. This template also contains text, but really all you need is a Word document with the style elements set that you wish to use
+  - **PDF**: The `tex` folder contains two `.tex` files that use Latex to create a final PDF:
+    - `params.tex` contains the Latex parameters required to compile the document
+    - `doc_preface.tex` contains the *front matter*: everything that will appear before the beginning of the thesis
+    
+*A note on the .tex documents:* The documents provided here are comprised of a mash-up of two extremely useful resources:
+
+- [Lucy D'Agostino McGowan's blogpost and dissertation toolkit](https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/) provided the original versions of these documents and a super handy walkthrough on how to use them.
+- [Jon Clau's updated Western .tex templates](https://github.com/jclauneuro/thesis_template) contain the information necessary to produce a Western U thesis (the files hosted on [Western's site](https://grad.uwo.ca/academics/thesis/formatting.html) are older versions)
+
+### Rendering the book
+
+Once you have more than one `.Rmd` file, you are ready to render/compile them into a fully combined document.
+
+
+The rendered version will appear in `_book/`
+
+To render the book as whatever is listed as the default in `index.Rmd`, do:
+
+```
+bookdown::render_book("index.Rmd")
+```
+
+To render as a pdf or word document, do:
+
+```
+bookdown::render_book("index.Rmd", output_format = "pdf_book")
+bookdown::render_book("index.Rmd", output_format = "word_document2")
+```
+
+A nice way to preview it is to render it as a gitbook:
+```
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+```
+Then open index.html in your browser, and run `bookdown::serve_site()` to update it whenever you save changes. This is much neater/navigable. 
+
+Beware of features that will only show up in pdf rendering (like certain features of kable, kableExtra), or that won't compile for pdfs (like the emo package)

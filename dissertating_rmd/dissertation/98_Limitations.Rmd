@@ -33,3 +33,10 @@ Additionally, providing more than style specifications to Word documents is a tr
 My rationalization for not worrying about this is that the .docx versions, for me, are intermediary; they are not the final product, and so fussing about the fine grained details is not a good use of time. However, it may be the case that someone down the line would prefer to use a .docx output every step of the way, right up until the final submission. In this case, more tweaking would need to be done.
 
 I have many more complaints about outputting to word (see Table gripes up above), but I think these limitations are not related to the fact that solutions don't exist, but that I haven't figured them out yet and have decided to stop worrying.
+
+# Other great resources
+
+- [Lucy's blog post](https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/)
+- [Angela Li's thread](https://twitter.com/CivicAngela/status/1024469727274565633)
+- [Rosanna van Hespen's blog series](https://rosannavanhespenresearch.wordpress.com/2016/02/03/writing-your-thesis-with-r-markdown-1-getting-started/)
+- [Chester Ismay's thesisdown package and examples](https://github.com/ismayc/thesisdown) (see other people's adaptations within, as well!)

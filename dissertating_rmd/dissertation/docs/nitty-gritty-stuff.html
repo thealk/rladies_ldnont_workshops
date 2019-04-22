@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 References | dissertating_rmd.utf8.md</title>
+  <title>Chapter 7 Nitty gritty stuff | dissertating_rmd.utf8.md</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown  and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 References | dissertating_rmd.utf8.md" />
+  <meta property="og:title" content="Chapter 7 Nitty gritty stuff | dissertating_rmd.utf8.md" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 References | dissertating_rmd.utf8.md" />
+  <meta name="twitter:title" content="Chapter 7 Nitty gritty stuff | dissertating_rmd.utf8.md" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="other-great-resources.html">
-
+<link rel="prev" href="previews.html">
+<link rel="next" href="exercises.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -192,29 +192,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1">
-<h1><span class="header-section-number">Chapter 11</span> References</h1>
+<div id="nitty-gritty-stuff" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Nitty gritty stuff</h1>
+<p>In descending order of messiness (i.e., how confused I get)<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
+<ul>
+<li>Reference management + citations</li>
+<li>Notes to self within text</li>
+<li>Snippets! 💕</li>
+<li>Predefined functions</li>
+<li>Footnotes</li>
+<li>Cross-referencing sections/figs/tables</li>
+<li>Figure/table autonumbering</li>
+<li>Tables in RMarkdown
+<ul>
+<li>Specifically when working with both .docx and .pdf</li>
+</ul></li>
+<li>Appendices</li>
+</ul>
+<div id="other-resources" class="section level2">
+<h2><span class="header-section-number">7.1</span> Other resources</h2>
+<ul>
+<li>Other Rmd + bookdown resources</li>
+</ul>
+</div>
+<div id="dissertating-in-bookdown" class="section level2">
+<h2><span class="header-section-number">7.2</span> Dissertating in Bookdown</h2>
+<div id="essential-ingredients" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Essential ingredients</h3>
+<ul>
+<li><code>index.Rmd</code>: Contains your YAML that will tell bookdown how to render your book</li>
+<li><code>.Rmd</code> files that comprise the body of your book. These can be specific chapters, but can also be constructed modularly in whatever way you choose.
+<ul>
+<li>Unless specifically told otherwise, bookdown will compile these in <em>alphanumeric order</em>, so they should be named in the order you want them to appear.
+<ul>
+<li>In a nutshell, file names should be <strong>machine readable, human readable, and play well with default ordering</strong> <a href="https://speakerdeck.com/jennybc/how-to-name-files">(thank you, Jenny Bryan)</a>.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="non-essential-but-very-helpful-ingredients" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Non-essential but very helpful ingredients</h3>
+<ul>
+<li>A <code>.bib</code> file contianing your references</li>
+<li>Separate directories containing your:
+<ul>
+<li>data (raw .csv files, etc)</li>
+<li>scripts (helper <code>.R</code> scripts that contain the bulk work of your analyses)</li>
+<li>images that are not created in R</li>
+</ul></li>
+<li><strong>Template documents</strong> that will provide bookdown with the information it needs to style your document
+<ul>
+<li><strong>Word</strong>: <code>uwo_thesis_template.docx</code> is a Word document containing the style settings required to output a Western-approved thesis. This template also contains text, but really all you need is a Word document with the style elements set that you wish to use</li>
+<li><strong>PDF</strong>: The <code>tex</code> folder contains two <code>.tex</code> files that use Latex to create a final PDF:
+<ul>
+<li><code>params.tex</code> contains the Latex parameters required to compile the document</li>
+<li><code>doc_preface.tex</code> contains the <em>front matter</em>: everything that will appear before the beginning of the thesis</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><em>A note on the .tex documents:</em> The documents provided here are comprised of a mash-up of two extremely useful resources:</p>
+<ul>
+<li><a href="https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/">Lucy D’Agostino McGowan’s blogpost and dissertation toolkit</a> provided the original versions of these documents and a super handy walkthrough on how to use them.</li>
+<li><a href="https://github.com/jclauneuro/thesis_template">Jon Clau’s updated Western .tex templates</a> contain the information necessary to produce a Western U thesis (the files hosted on <a href="https://grad.uwo.ca/academics/thesis/formatting.html">Western’s site</a> are older versions)</li>
+</ul>
+</div>
+<div id="rendering-the-book" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> Rendering the book</h3>
+<p>Once you have more than one <code>.Rmd</code> file, you are ready to render/compile them into a fully combined document.</p>
+<p>The rendered version will appear in <code>_book/</code></p>
+<p>To render the book as whatever is listed as the default in <code>index.Rmd</code>, do:</p>
+<pre><code>bookdown::render_book(&quot;index.Rmd&quot;)</code></pre>
+<p>To render as a pdf or word document, do:</p>
+<pre><code>bookdown::render_book(&quot;index.Rmd&quot;, output_format = &quot;pdf_book&quot;)
+bookdown::render_book(&quot;index.Rmd&quot;, output_format = &quot;word_document2&quot;)</code></pre>
+<p>A nice way to preview it is to render it as a gitbook:</p>
+<pre><code>bookdown::render_book(&quot;index.Rmd&quot;, &quot;bookdown::gitbook&quot;)</code></pre>
+<p>Then open index.html in your browser, and run <code>bookdown::serve_site()</code> to update it whenever you save changes. This is much neater/navigable.</p>
+<p>Beware of features that will only show up in pdf rendering (like certain features of kable, kableExtra), or that won’t compile for pdfs (like the emo package)</p>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="6">
+<li id="fn6"><p>Some of my confusion may be because I haven’t had to try hard to figure it out yet, and not necessarily related to the actual detail itself<a href="nitty-gritty-stuff.html#fnref6" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="other-great-resources.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="previews.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -244,7 +315,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/99_References.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03_NittyGritty.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -1,6 +1,23 @@
-# Methods
 
-## Getting organized: Directory structure
+# RMarkdown crash course {#crashcourse}
+
+*But first: A crash course in RMarkdown*
+
+In Spring 2018 at R-Ladies #LdnOnt we practiced making a [manuscript using RMarkdown](https://github.com/rladies/meetup-presentations_london_ontario/tree/master/2018-03-06_rmarkdown) ([slides](http://rpubs.com/thealk/368020)). 
+Today we will up the ante and write a whole[^1] dissertation using RMarkdown!
+
+`bookdown` is a brilliant R package designed to incorporate multiple RMarkdown files into a single final product, a book. But `bookdown` is not just for books: 
+
+> Despite the package name containing the word “book”, bookdown is not only for books. The “book” can be anything that consists of multiple R Markdown documents meant to be read in a linear sequence, such as course handouts, study notes, a software manual, a thesis, or even a diary. [From the bookdown preface](https://bookdown.org/yihui/bookdown/)
+
+[^1]: More like a smidgin than a whole, really.
+
+**Get up and running with RMarkdown and R Projects: Do exercise 1 in Section \@ref(ex1)**
+
+
+
+
+# Getting organized: Directory structure
 *A suggestion based on the advice of several clever people I have copied:*
 
 ![](images/dir_structure.png)
@@ -30,7 +47,7 @@ In this example...
 - [Angela Li's thread on thesis structuring](https://twitter.com/CivicAngela/status/1024469727274565633)
 
 
-## Writing a chapter {#chapter-writing}
+# Writing a chapter {#chapter-writing}
 
 We will now create a single chapter in RMarkdown.
 
@@ -51,7 +68,7 @@ The heavy-duty version will help us learn how to incorporate:
 
 **Go to the heavy-duty version in exercise 3 in Section \@ref(ex3)**
 
-## Making a book!
+# Making a book!
 
 *This section is heavily informed by Lucy's beautiful [blog post](https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/) and accompanying [toolkit](https://github.com/LucyMcGowan/dissertation-toolkit).*
 
@@ -69,7 +86,7 @@ Recall that, for this method, the **essential ingredients** are:
 - references.bib
 - templates
 
-### The workhorses
+## The workhorses
 The files that will do the heavy lifting in order for your dissertation to compile as a PDF are: 
 
 - `index.Rmd` contains the YAML[^yaml]
@@ -113,7 +130,7 @@ Importantly, we are pointing to the two other workhorses necessary for the PDF o
 
 ![](images/doc_preface.png)
 
-### Ready, set, render!
+## Ready, set, render!
 
 To compile your dissertation for the first time, enter the following code in the console:
 
@@ -138,7 +155,7 @@ There is a way to [preview individual chapters](https://bookdown.org/yihui/bookd
 
 
 
-### Intermediary stages
+## Intermediary stages
 I like to do a full rendering of my PDF anytime I make major changes, just to make sure everything still works so as to avoid major errors along the way.
 
 In the interim, I have a couple of different methods for viewing my work. These are some suggestions:
@@ -151,7 +168,7 @@ In the interim, I have a couple of different methods for viewing my work. These 
 
 - **Use child documents to knit partial previews of the dissertation to send to your supervisor/committee:** My supervisor does not need to see my entire dissertation document every time I add a section. It is much kinder and realistic to send individual chapters or sections to him. Furthermore, he likes to receive things in .docx format so he can used tracked changes to add suggestions. After much hemming and hawing, I have settled on a workflow for this that I am happy with, though it is by no means the best option for everyone. See the next Section \@ref(previews).
 
-## Previews and collaborations {#previews}
+# Previews and collaborations {#previews}
 
 One of the reasons I have fallen so completely in love with RMarkdown is it lets me putter away in my ideal workflow (do stuff in R, integrate directly in document, have full control over style parameters), AND honour my supervisor's desire to receive .docx documents.
 
@@ -178,7 +195,7 @@ I strayed away from this option because sometimes I found myself wanting to send
 - I then incorporate these tracked changes *by hand* into my RMarkdown files.
   - Note: this is a highly controversial topic! We have currently hit a happy medium where I am okay doing this (it gives me the opportunity to more carefully review the changes I think), and he has allowed me to send drafts without tracked changes back.
   - NOT ALL COLLABORATORS WILL BE THIS FLEXIBLE. Some want to see the tracked changes sent back to them too. This gets tricky with RMarkdown, and has been the centre of several debates.
-  - Some semi-solutions you may wish to explore:
+  - Some semi-solutions you may wish to explore that I have retweeted exactly for this purpose:
 
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Well this is potentially extremely exciting. Two way word &lt;-&gt; rmd street, including tracked changes integration. Will be watching this one 👀 <a href="https://t.co/7hcqolbBFQ">https://t.co/7hcqolbBFQ</a></p>&mdash; Thea Knowles (@theaknowles) <a href="https://twitter.com/theaknowles/status/1069237398674931714?ref_src=twsrc%5Etfw">December 2, 2018</a></blockquote>
@@ -188,94 +205,3 @@ I strayed away from this option because sometimes I found myself wanting to send
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">TIL There is a way to compare diffs between 2 .docx files<br><br>Implications for Rmd workflows with collaborators/supervisors using Word: Use the revised .docx version to guide changes in your .Rmd, then compare new output with the original to dbl check<br><br>👍 <a href="https://t.co/A2EtEpFxbm">https://t.co/A2EtEpFxbm</a> <a href="https://t.co/dnWDjCXLxn">pic.twitter.com/dnWDjCXLxn</a></p>&mdash; Thea Knowles (@theaknowles) <a href="https://twitter.com/theaknowles/status/1096423010117083136?ref_src=twsrc%5Etfw">February 15, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-
-
-
-### 5. The nitty gritty
-In descending order of messiness (i.e., how confused I get[^2])
-
-[2^]: Some of my confusion may be because I haven't had to try hard to figure it out yet, and not necessarily related to the actual detail itself
-
-- Reference management + citations
-- Notes to self within text
-- Snippets! `r emo::ji("two_hearts")`
-- Predefined functions
-- Footnotes
-- Cross-referencing sections/figs/tables
-- Figure/table autonumbering
-- Tables in RMarkdown
-  - Specifically when working with both .docx and .pdf
-- Appendices
-
-
-
-## Let's start dissertating with a .docx output
-
-### Template
-- Western has a .docx thesis template. This includes detailed descriptions of what should go in the final document, but importantly for our purposes here, all we need are the *styles* specified within this document.
-  - This could technically just be a blank document. We use it to tell RMarkdown[^3] how to style the final output in Word
-  - See also `custom_template.docx` from previous [RMarkdown workshop](LINK) to see what I mean
-  
-[^3]: Well, really to tell RMarkdown what to tell Pandoc...
-
-
-## Other resources
-- Other Rmd + bookdown resources
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, fig.width = 6)
-```
-
-## Dissertating in Bookdown
-### Essential ingredients
-- `index.Rmd`: Contains your YAML that will tell bookdown how to render your book
-- `.Rmd` files that comprise the body of your book. These can be specific chapters, but can also be constructed modularly in whatever way you choose. 
-  - Unless specifically told otherwise, bookdown will compile these in *alphanumeric order*, so they should be named in the order you want them to appear. 
-    - In a nutshell, file names should be **machine readable, human readable, and play well with default ordering** [(thank you, Jenny Bryan)](https://speakerdeck.com/jennybc/how-to-name-files).
-
-  
-### Non-essential but very helpful ingredients
-
-- A `.bib` file contianing your references
-- Separate directories containing your:
-  - data (raw .csv files, etc)
-  - scripts (helper `.R` scripts that contain the bulk work of your analyses)
-  - images that are not created in R
-- **Template documents** that will provide bookdown with the information it needs to style your document
-  - **Word**: `uwo_thesis_template.docx` is a Word document containing the style settings required to output a Western-approved thesis. This template also contains text, but really all you need is a Word document with the style elements set that you wish to use
-  - **PDF**: The `tex` folder contains two `.tex` files that use Latex to create a final PDF:
-    - `params.tex` contains the Latex parameters required to compile the document
-    - `doc_preface.tex` contains the *front matter*: everything that will appear before the beginning of the thesis
-    
-*A note on the .tex documents:* The documents provided here are comprised of a mash-up of two extremely useful resources:
-
-- [Lucy D'Agostino McGowan's blogpost and dissertation toolkit](https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/) provided the original versions of these documents and a super handy walkthrough on how to use them.
-- [Jon Clau's updated Western .tex templates](https://github.com/jclauneuro/thesis_template) contain the information necessary to produce a Western U thesis (the files hosted on [Western's site](https://grad.uwo.ca/academics/thesis/formatting.html) are older versions)
-
-### Rendering the book
-
-Once you have more than one `.Rmd` file, you are ready to render/compile them into a fully combined document.
-
-
-The rendered version will appear in `_book/`
-
-To render the book as whatever is listed as the default in `index.Rmd`, do:
-
-```
-bookdown::render_book("index.Rmd")
-```
-
-To render as a pdf or word document, do:
-
-```
-bookdown::render_book("index.Rmd", output_format = "pdf_book")
-bookdown::render_book("index.Rmd", output_format = "word_document2")
-```
-
-A nice way to preview it is to render it as a gitbook:
-```
-bookdown::render_book("index.Rmd", "bookdown::gitbook")
-```
-Then open index.html in your browser, and run `bookdown::serve_site()` to update it whenever you save changes. This is much neater/navigable. 
-
-Beware of features that will only show up in pdf rendering (like certain features of kable, kableExtra), or that won't compile for pdfs (like the emo package)

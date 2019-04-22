@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 References | dissertating_rmd.utf8.md</title>
+  <title>Chapter 5 Making a book! | dissertating_rmd.utf8.md</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown  and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 References | dissertating_rmd.utf8.md" />
+  <meta property="og:title" content="Chapter 5 Making a book! | dissertating_rmd.utf8.md" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 References | dissertating_rmd.utf8.md" />
+  <meta name="twitter:title" content="Chapter 5 Making a book! | dissertating_rmd.utf8.md" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="other-great-resources.html">
-
+<link rel="prev" href="chapter-writing.html">
+<link rel="next" href="previews.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -192,29 +192,96 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1">
-<h1><span class="header-section-number">Chapter 11</span> References</h1>
-
+<div id="making-a-book" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Making a book!</h1>
+<p><em>This section is heavily informed by Lucy’s beautiful <a href="https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/">blog post</a> and accompanying <a href="https://github.com/LucyMcGowan/dissertation-toolkit">toolkit</a>.</em></p>
+<p>Now that we have the bare bones of a dissertation, we can compile it for the first time.</p>
+<p><strong>Go to exercise 4 in Section <a href="exercises.html#ex4">8.4</a></strong></p>
+<p>Recall that, for this method, the <strong>essential ingredients</strong> are:</p>
+<ul>
+<li>your .Rmd files (chapters)</li>
+<li>index.Rmd</li>
+</ul>
+<p><strong>Optional ingredients:</strong></p>
+<ul>
+<li>references.bib</li>
+<li>templates</li>
+</ul>
+<div id="the-workhorses" class="section level2">
+<h2><span class="header-section-number">5.1</span> The workhorses</h2>
+<p>The files that will do the heavy lifting in order for your dissertation to compile as a PDF are:</p>
+<ul>
+<li><code>index.Rmd</code> contains the YAML<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></li>
+<li><code>params.tex</code></li>
+<li><code>preamble.tex</code></li>
+</ul>
+<p><strong><code>index.Rmd</code></strong>
+<img src="images/index_yaml.png" /></p>
+<p>This contains a lot of info. You can specify different options for each output type you plan to compile. Since we’ll be compiling to PDF (<code>pdf_book</code>), let’s take a closer look at that section:</p>
+<pre><code>output:
+  bookdown::pdf_book:
+    toc: no
+    template: null
+    latex_engine: xelatex
+    keep_tex: yes
+    includes:
+      in_header: templates/preamble.tex
+      before_body: templates/doc_preface.tex</code></pre>
+<p>Importantly, we are pointing to the two other workhorses necessary for the PDF output: the .tex files. Note that these are adapted from people who know a lot more about LaTeX than I do; I changed very little, and mostly just moved stuff around. In their current form, they will output a document that adheres to the current Western thesis standards<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
+<ul>
+<li>The <code>in_header</code> line tells bookdown to incorporate everything in <code>preamble.tex</code>. If you’re familiar with LaTex, this is everything that comes before <code>\begin{document}</code>. This also contains important info like your name, department, thesis title, etc…</li>
+</ul>
+<p><strong>preamble.tex</strong></p>
+<p><img src="images/preamble.png" /></p>
+<ul>
+<li>The <code>before_body</code> line points to <code>doc_preface.tex</code> which contains all the pre-body text including the abstract, acknowledgements, table of contents, etc</li>
+</ul>
+<p><strong>doc_preface.tex</strong></p>
+<p><img src="images/doc_preface.png" /></p>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
+<div id="ready-set-render" class="section level2">
+<h2><span class="header-section-number">5.2</span> Ready, set, render!</h2>
+<p>To compile your dissertation for the first time, enter the following code in the console:</p>
+<pre><code>bookdown::render_book(&quot;index.Rmd&quot;, &quot;bookdown::pdf_book&quot;)</code></pre>
+<p>Note that here we are specifying the <code>pdf_book</code> output format, but we don’t actually have to since it happens to be the first, and therefore default, output format specified in our YAML. We could just as successfully run <code>bookdown::render_book("index.Rmd")</code>.</p>
+<p>If all goes according to plan, you will see a smattering of new folders and files.
+Your shiny new book can be found in <code>_book/_main.pdf</code></p>
+<p>If things did <em>not</em> go according to plan, you will get an error and a request that you delete <code>_main.Rmd</code> before recompiling. <code>_main.Rmd</code> is a document that’s created in the process, but gets deleted when the final output has successfully compiled. It can often give you hints as to what went wrong (the lines where it got tripped up will be echoed in the error message). As instructed, you must delete it before you try to render again.</p>
+<p><strong>Other things to know</strong></p>
+<ul>
+<li>This is the “Merge-and-Knit” approach. See Yihui’s explanation of other rendering approaches <a href="https://bookdown.org/yihui/bookdown/new-session.html">here</a>.</li>
+<li>Yihui also recommends not rendering the full PDF that often, as it can be very time consuming when the output is large, and you run the risk of getting caught up with typesetting queries that are best left to the end.
+There is a way to <a href="https://bookdown.org/yihui/bookdown/some-tips.html">preview individual chapters</a> that Yihui has included in bookdown, but I will also discuss my own preview methods later on.</li>
+<li>If you choose to use the LaTeX nomenclature package to handle abbreviations, you need to do some additional work to get the abbreviations to show up the first time. I recommend scrolling to this section in <a href="https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/">Lucy’s blog post</a></li>
+<li>Chapter headers (Chapter 1, Chapter 2, etc) are inserted when you use a first level header, e.g. <code># Header 1</code>. Subsections within a chapter are assigned based on the subheaders you use (e.g., <code>## Header 2</code>, <code>### Header 3</code>…)</li>
+</ul>
+</div>
+<div id="intermediary-stages" class="section level2">
+<h2><span class="header-section-number">5.3</span> Intermediary stages</h2>
+<p>I like to do a full rendering of my PDF anytime I make major changes, just to make sure everything still works so as to avoid major errors along the way.</p>
+<p>In the interim, I have a couple of different methods for viewing my work. These are some suggestions:</p>
+<ul>
+<li><p><strong>Bookmark an .html version of your most recent version for quick and easy viewing:</strong> Every day, I compile a <code>gitbook</code> version of my dissertation. This outputs an HTML file that can be viewed in a web browser. I’ve saved this page to my Chrome bookmarks so I can easily glance at the most recent version whenever I want.</p></li>
+<li><p><strong>Keep a bookdown project of notes that can also be bookmarked and easily viewed:</strong> I also have another bookdown project that I update regularly called my dissertation “roadmap”, and which is also bookmarked for easy access. I use this “book” as a collection of notes to myself (mainly changes to my methodology, issues I’ve run into with compiling, etc…). I also used it to cut my teeth on while getting used to bookdown, before actually compiling the bones of my dissertation for the first time.</p></li>
+<li><p><strong>Knit individual chapters in isolation:</strong> You can knit individual .Rmd files to see how images show up, how the text looks, etc. I like to knit to HTML on a very regular basis because it’s a) fast and b) shows up immediately in my Viewer pane in RStudio. I also will occasionally knit individual chapters as Word documents to see how they will show up when I send them to my supervisor for edits (see below), and to keep track of things that aren’t playing nice with Word.</p></li>
+<li><p><strong>Use child documents to knit partial previews of the dissertation to send to your supervisor/committee:</strong> My supervisor does not need to see my entire dissertation document every time I add a section. It is much kinder and realistic to send individual chapters or sections to him. Furthermore, he likes to receive things in .docx format so he can used tracked changes to add suggestions. After much hemming and hawing, I have settled on a workflow for this that I am happy with, though it is by no means the best option for everyone. See the next Section <a href="previews.html#previews">6</a>.</p></li>
+</ul>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="4">
+<li id="fn4"><p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> (rhymes with camel): The frontmatter/metadata that tells R Markdown how to generate your document. Indentation and spacing are <strong>very important</strong>. Stands for “YAML Ain’t Markup Language” or, less meta, “Yet Another Multicolumn Layout.”<a href="making-a-book.html#fnref4" class="footnote-back">↩</a></p></li>
+<li id="fn5"><p>The <a href="https://github.com/ismayc/thesisdown"><code>thesisdown package readme</code></a> has a nice list of other templates that people have adapted for their universities if you’d like to compare other .tex input files.<a href="making-a-book.html#fnref5" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="other-great-resources.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="chapter-writing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="previews.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -244,7 +311,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/99_References.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02_Basics.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -14,33 +14,15 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 options(digits = 3)
 ```
 
-# Dissertating in RMarkdown + Bookdown: A preliminary guide
+# Dissertating with RMarkdown and Bookdown {-}
 
-This tutorial was last updated: `r format(Sys.time(), '%d %B, %Y')`
 
-This is a non-exhaustive guide to writing your dissertation using `RMarkdown` and `Bookdown`. 
-Specifically, it will walk you through *one method* of organziing, writing, and rendering a dissertation with these tools, using an adapted version of the [Western University](uwo.ca) [thesis templates](https://grad.uwo.ca/academics/thesis/formatting.html).
-This tutorial was written by me, [Thea Knowles](theaknowles.com). At the time of writing, I am currently in the throes of dissertating. This means that there are likely several details I haven't quite hammered out yet, or techniques I've missed. In the last year and a half, I've been collecting other people's tutorials and resources on using RMarkdown + for the purposes of using it to write a dissertation. The final product is my interpretation of these resources, adapted to my needs, and presented here as a *"What-I've-learned-so-far"*-style tutorial.
+<center>
 
-## Prerequisites
+***A preliminary tutorial led by Thea Knowles for the R-Ladies #LdnOnt workshop series***
 
-In order to use this tutorial, you need the following:
+***Last updated:** `r Sys.Date()`*
 
-- [R](https://www.r-project.org/)
-- [RStudio](https://www.rstudio.com/products/rstudio/download/)
-  - Recent versions of RStudio also include [Pandoc](), which is required to compile documents
-- Latex for [Mac](https://tug.org/mactex/mactex-download.html) or [Windows](https://miktex.org/download) (if you want to compile to PDF).
-  - Alternatively, install [TinyTex](https://yihui.name/tinytex/), the Latex distribution created and recommended by Yihui Xie, creator of RMarkdown and bookdown[^139].
-
-[^139]: TinyTex is probably the best way to go because Yihui always anticipates the problems we will run into, but I personally have not used it.
-
-- R packages:
-
-```{r eval=FALSE, echo=TRUE}
-if(!require(devtools))
-  install.packages("devtools", repos = "http://cran.rstudio.com")
-install.packages("bookdown")
-install.packages("knitr")
-
-```
+![](images/rladies-dissertating.jpeg)
+</center>
 
