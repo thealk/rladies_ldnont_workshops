@@ -1,0 +1,76 @@
+---
+title: "results"
+author: "Thea Knowles"
+date: '2018-02-18'
+output: word_document
+---
+
+```{r setup_results, include=FALSE}
+# Important: If this is a child doc, you can't have duplicate chunk names
+#    e.g., setup exists in the parent .Rmd, so I've changed this chunk name to setup_results
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r source, include=FALSE}
+source("helper.R")
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Don't forget the plot we made! We can further customize it here
+```{r}
+calsugs_plot+
+     theme_bw()+
+     xlab("Sugars (g)")
+```
+
+We can also just redo the plot
+```{r fatPlot, echo=FALSE}
+ggplot(data = starbucks, aes(x = total_fat, y = Calories, color=kind)) + 
+     geom_point()+
+     geom_smooth(method="lm")+
+     facet_wrap(~size)+
+     theme_bw()
+```
+
+
+Here are some tables too
+```{r eval=FALSE}
+kable((summary(cal_mod)$coefficients), digits=3)
+```
+
+Other stuff
+- How do we change the row names?
+- if p < 0.001, can we write it out that way?
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+Figure \@ref(fig:figlabel) is shown here. 
+
+```{r figlabel, echo=FALSE, fig.cap="A nice figure caption", fig.height=12, fig.width=10}
+plot(pressure)
+```
+
+

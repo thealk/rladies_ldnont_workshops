@@ -1,0 +1,77 @@
+---
+title: "Manuscript"
+subtitle: "Generated using RMarkdown"
+author:
+- Thea Knowles^1^, Thea Knowles' Alter Ego^2^
+- ^1^Western University, ^2^University of Western Ontario
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  bookdown::word_document2:
+    fig_caption: yes
+    md_extensions: +footnotes
+    reference_docx: custom_reference.docx
+    toc: yes
+  word_document:
+    fig_caption: yes
+    md_extensions: +footnotes
+    reference_docx: custom_reference.docx
+    toc: yes
+  html_document:
+    toc: yes
+csl: apa.csl
+bibliography: starbucks_refs.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Load required packages
+library(knitr)
+library(rmarkdown)
+library(ggplot2)
+```
+
+
+# Introduction
+Here is an introduction. This paper explores the relationship between calorie content, total fat, and sugars in specialty coffee beverages made by the Starbucks industry.
+
+Starbucks recently introduced calorie counts on their menus, a marketing move reflecting consumer trends motivated in part by the recent findings of [@bleich2015]. Other research on this topic will be cited here in parentheses [@drewnowski2003; @malik2010]. @weaver2003 demonstrated the use of an inline citation here. 
+
+# Methods
+Here is a nifty equation that shows absolutely nothing except how to include an equation and cite it: 
+
+<!-- COMMENTS! -->
+<!-- The text enclosed in dollar signs $ $ will be treated as LaTex math (an equation), and will be formatted especially for this -->
+
+<!-- Want to center text or an image that isn't in an R chunk? use <center> TEXT </center> -->
+
+<center>
+TEED = $\frac{10(coffee\ budget ^ 2)}{my\ income}* \$ 1\ bazillion$. 
+</center>
+
+The following table similarly demonstrates absolutely nothing useful except how to generate a simple table in RMarkdown.
+
+|  Weekday  |  Kind of coffee I drank  | Happiness |
+|:---------:|:------------------------:|:---------:|
+|   Monday  |       Black coffee       |     5     |
+|  Tuesday  |           Latte          |      4    |
+| Wednesday |        Cappuccino        |     7     |
+|  Thursday |       Black coffee       |     5     |
+|   Friday  |         No coffee        |     0     |
+|  Saturday |       Irish coffee       |     9     |
+|   Sunday  | Orange mocha frappuccino |     11    |
+
+# Results
+<!-- This is a comment in RMarkdown main body text. Note how it differs from comments in R code (#). 
+I have written the results section separately to keep things nice and tidy, and this is where I will call it as "child" input. 
+It is important that R chunks (identifiable as sandwiched between three back ticks ```) in the child file don't have the same names as chunks in the main file. -->
+```{r child = 'results.Rmd'}
+
+```
+
+# Discussion
+
+# Limitations
+
+# References
+

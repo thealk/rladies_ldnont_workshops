@@ -1,0 +1,512 @@
+head(subset(starbucks,kind=="fancy_coffe"))
+head(subset(starbucks,kind=="fancy_coffee"))
+head(subset(starbucks,kind=="fancy_coffee")$Beverage)
+head(subset(starbucks,kind=="fancy_coffee"))
+head(subset(starbucks,kind=="fancy_coffee")$Beverage_category)
+tail(subset(starbucks,kind=="fancy_coffee")$Beverage_category)
+library(ggplot2)
+#library(tidyverse)
+library(dplyr)
+library(ggplot2)
+#library(tidyverse)
+library(dplyr)
+# Load data ----
+starbucks <- read.csv("starbucks_drinkMenu_expanded.csv")
+starbucks$size <- factor(starbucks$size,
+levels = c("short", "tall", "grande", "venti"))
+starbucks$total_fat <- as.numeric(starbucks$total_fat)
+starbucks$sugars <- as.numeric(starbucks$sugars)
+# Exploring data
+plot(starbucks$total_fat, starbucks$Calories)
+plot(starbucks$sugars, starbucks$Calories)
+# Model 1: Calories ~ sugars
+mod1 <- lm(Calories ~ sugars, data=starbucks)
+summary(mod1)
+# Model 2: Calories ~ sugars + fat
+mod2 <- lm(Calories ~ sugars + total_fat, data=starbucks)
+# Compare models 1 and 2: does adding fat provide a better model fit?
+anova(mod1,mod2) # Sure does!
+summary(mod2)
+# Model 3: Calories ~ sugar*fat (include interaction between fat and sugar)
+mod3 <- lm(Calories ~ sugars*total_fat, data=starbucks)
+# Compare models 2 and 3: does adding the interaction provide a better model fit?
+anova(mod2,mod3) # No it does not; so we'll just use model2
+summary(mod3) # We can see that the interaction between sugars and fat isn't significant. Adding it to the model didn't improve the fit.
+# Renaming mod2 to something more useful
+cal_mod <- mod2
+cal_mod_sum <- summary(cal_mod)
+# Check to see whether fat and sugar are correlated; we want to avoid multicollinearity
+# They don't appear to be closely related
+ggplot(data = starbucks, aes(x = total_fat, y = sugars))+
+geom_point()+
+geom_smooth(method="lm")
+# They do have a significant but weak (r=.19) correlation
+hist(starbucks$sugars)
+hist(starbucks$total_fat)
+rcorr(starbucks$total_fat, starbucks$sugars, type = "spearman")
+# Plots ----
+## Sugars----
+sugPlot <- ggplot(data = starbucks, aes(x = sugars, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")
+## Fats----
+fatPlot <- ggplot(data = starbucks, aes(x = total_fat, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")
+sugPlot
+rcorr(starbucks$total_fat, starbucks$sugars, type = "spearman")
+library(Hmisc) # to use rcorr
+ggplot(data = starbucks, aes(x = total_fat, y = Calories, color=kind)) +
+geom_point()+
+geom_smooth(method="lm")+
+facet_wrap(~size)+
+theme_bw()
+install.packages("ROAuth")
+install.packages("Twitter")
+install.packages("twitteR")
+library(twitteR)
+library(ROAuth)
+cred <- OAuthFactory$new(consumerKey='LnGxfSwLVVfqF0iqqgCvMT0RC',
+consumerSecret='W9Utl32Nuh7WnE6aMDSwc7csPksbfh3cyBC6Hy3Ed2wHPHCfh8',
+requestURL='https://api.twitter.com/oauth/request_token',
+accessURL='https://api.twitter.com/oauth/access_token',
+authURL='https://api.twitter.com/oauth/autorize')
+cred$handshake(cainfo="cacert.pem")
+download.file(url="http://curl.haxx.se/ca/cacert.pem",destfile="cacert.pem")
+cred <- OAuthFactory$new(consumerKey='LnGxfSwLVVfqF0iqqgCvMT0RC',
+consumerSecret='W9Utl32Nuh7WnE6aMDSwc7csPksbfh3cyBC6Hy3Ed2wHPHCfh8',
+requestURL='https://api.twitter.com/oauth/request_token',
+accessURL='https://api.twitter.com/oauth/access_token',
+authURL='https://api.twitter.com/oauth/autorize')
+cred$handshake(cainfo="cacert.pem")
+cred <- OAuthFactory$new(consumerKey='LnGxfSwLVVfqF0iqqgCvMT0RC',
+consumerSecret='W9Utl32Nuh7WnE6aMDSwc7csPksbfh3cyBC6Hy3Ed2wHPHCfh8',
+requestURL='https://api.twitter.com/oauth/request_token',
+accessURL='https://api.twitter.com/oauth/access_token',
+authURL='https://api.twitter.com/oauth/autorize')
+cred$handshake(cainfo="cacert.pem")
+consumerSecret='W9Utl32Nuh7WnE6aMDSwc7csPksbfh3cyBC6Hy3Ed2wHPHCfh8',
+requestURL='https://api.twitter.com/oauth/request_token',
+accessURL='https://api.twitter.com/oauth/access_token',
+authURL='https://api.twitter.com/oauth/authorize')
+cred$handshake(cainfo="cacert.pem")
+consumerSecret='W9Utl32Nuh7WnE6aMDSwc7csPksbfh3cyBC6Hy3Ed2wHPHCfh8',
+requestURL='https://api.twitter.com/oauth/request_token',
+accessURL='https://api.twitter.com/oauth/access_token',
+authURL='https://api.twitter.com/oauth/authorize')
+cred <- OAuthFactory$new(consumerKey='LnGxfSwLVVfqF0iqqgCvMT0RC',consumerSecret='W9Utl32Nuh7WnE6aMDSwc7csPksbfh3cyBC6Hy3Ed2wHPHCfh8',requestURL='https://api.twitter.com/oauth/request_token', accessURL='https://api.twitter.com/oauth/access_token',authURL='https://api.twitter.com/oauth/authorize')
+cred$handshake(cainfo="cacert.pem")
+save(cred, file="twitter authentication.Rdata")
+source('helper.R')
+??rmarkdown
+# Load data ----
+starbucks <- read.csv("starbucks_drinkMenu_expanded.csv")
+# Run this line if you you've never installed these packages:
+# install.packages(c("ggplot2", "dplyr", "Hmisc"))
+# Note: you can also check if you have them installed in your RStudio Packages pane
+library(ggplot2)
+library(dplyr)
+library(Hmisc) # to use rcorr
+# Load data ----
+starbucks <- read.csv("starbucks_drinkMenu_expanded.csv")
+# Modifying datatypes
+starbucks$size <- factor(starbucks$size,
+levels = c("short", "tall", "grande", "venti"))
+starbucks$total_fat <- as.numeric(starbucks$total_fat)
+starbucks$sugars <- as.numeric(starbucks$sugars)
+# Exploring data
+plot(starbucks$total_fat, starbucks$Calories)
+plot(starbucks$sugars, starbucks$Calories)
+# Model 1: Calories ~ sugars
+mod1 <- lm(Calories ~ sugars, data=starbucks)
+summary(mod1)
+# Model 1: Calories ~ sugars
+mod1 <- lm(Calories ~ sugars, data=starbucks)
+summary(mod1)
+# Model 2: Calories ~ sugars + fat
+mod2 <- lm(Calories ~ sugars + total_fat, data=starbucks)
+# Compare models 1 and 2: does adding fat provide a better model fit?
+anova(mod1,mod2) # Sure does!
+summary(mod2)
+# Model 3: Calories ~ sugar*fat (include interaction between fat and sugar)
+mod3 <- lm(Calories ~ sugars*total_fat, data=starbucks)
+# Compare models 2 and 3: does adding the interaction provide a better model fit?
+anova(mod2,mod3) # No it does not; so we'll just use model2
+summary(mod3) # We can see that the interaction between sugars and fat isn't significant. Adding it to the model didn't improve the fit.
+# Renaming mod2 to something more useful
+cal_mod <- mod2
+cal_mod_sum <- summary(cal_mod)
+plot(cal_mod,which=1)
+cal_mod
+plot(cal_mod,which=1)
+# Model 2: Calories ~ sugars + fat
+mod2 <- lm(Calories ~ sugars + total_fat, data=starbucks)
+plot(cal_mod)
+qqnorm(residuals(cal_mod))
+plot(cal_mod,which=1)
+# Check to see whether fat and sugar are correlated; we want to avoid multicollinearity
+# They don't appear to be closely related
+ggplot(data = starbucks, aes(x = total_fat, y = sugars))+
+geom_point()+
+geom_smooth(method="lm")
+# They do have a significant but weak (r=.19) correlation
+hist(starbucks$sugars)
+hist(starbucks$total_fat)
+# Check to see whether fat and sugar are correlated; we want to avoid multicollinearity
+# They don't appear to be closely related
+ggplot(data = starbucks, aes(x = total_fat, y = sugars))+
+geom_point()+
+geom_smooth(method="lm")
+# They do have a significant but weak (r=.19) correlation
+rcorr(starbucks$total_fat, starbucks$sugars, type = "spearman")
+# Plots ----
+## Sugars----
+sugPlot <- ggplot(data = starbucks, aes(x = sugars, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")
+sugPlot
+## Fats----
+fatPlot <- ggplot(data = starbucks, aes(x = total_fat, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")
+fatPlot
+View(starbucks)
+library(emo)
+emo::ji_find(book)
+emo::ji_find("book")
+str(starbucks$Calories)
+str(starbucks$sugars)
+# Load data ----
+starbucks <- read.csv("starbucks_drinkMenu_expanded.csv")
+str(starbucks$sugars)
+summary(starbucks$sugars)
+head(starbucks)
+# Summarise data
+by_beverage <- group_by(starbucks, Beverage_category)
+by_beverage
+levels(starbucks$Beverage)
+levels(starbucks$Beverage_category)
+nrow(starbucks)
+nrow(by_beverage)
+head(starbucks)
+# Summarise data
+by_beverage <- group_by(starbucks, Beverage_category, size)
+by_beverage
+summary(by_beverage)
+# Summarise data
+cals <- summarise(group_by(starbucks, Beverage_category, Calories),
+cals = mean(Calories))
+cals
+# Summarise data
+cals <- summarise(group_by(starbucks, Beverage_category),
+cals = mean(Calories))
+cals
+# Summarise data
+cals <- summarise(group_by(starbucks, Beverage_category),
+cals = mean(Calories),
+sug = mean(sugars))
+cals
+# Summarise data
+calsugs <- summarise(group_by(starbucks, Beverage_category),
+cals = mean(Calories),
+sug = mean(sugars))
+calsugs
+## Fats----
+fatPlot <- ggplot(data = starbucks, aes(x = total_fat, y = Calories, color=sugars)) +
+geom_point()+
+geom_smooth(method="lm")+
+## Fats----
+fatPlot <- ggplot(data = starbucks, aes(x = total_fat, y = Calories, color=sugars)) +
+geom_point()+
+geom_smooth(method="lm")
+## Fats----
+fatPlot <- ggplot(data = starbucks, aes(x = total_fat, y = Calories, color=sugars)) +
+geom_point()+
+geom_smooth(method="lm")
+fatPlot
+# Plots ----
+## Sugars----
+sugPlot <- ggplot(data = starbucks, aes(x = sugars, y = Calories, color= Beverage_category)) +
+geom_point()+
+geom_smooth(method="lm")
+sugPlot
+# Plots ----
+## Sugars----
+sugPlot <- ggplot(data = starbucks, aes(x = sugars, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")
+sugPlot
+# Plots ----
+## Sugars----
+sugPlot <- ggplot(data = starbucks, aes(x = sugars, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")+
+facet_wrap(~Beverage_category)
+sugPlot
+# Plots ----
+## Calories x sugars ----
+sugPlot <- ggplot(data = starbucks, aes(x = Calories, y = sugars)) +
+geom_point()+
+geom_smooth(method="lm")+
+facet_wrap(~Beverage_category)
+sugPlot
+# Plots ----
+## Calories x sugars ----
+calsugs_plot <- ggplot(data = starbucks, aes(x = Calories, y = sugars)) +
+geom_point()+
+geom_smooth(method="lm")+
+facet_wrap(~Beverage_category)
+ggplot(data=starbucks, aes(x=Calories, y=sugars))+geom_boxplot()
+ggplot(data=starbucks, aes(x=Beverage_category, y=calories))+geom_boxplot()
+ggplot(data=starbucks, aes(x=Beverage_category, y=Calories))+geom_boxplot()
+ggplot(data=starbucks, aes(x=Beverage_category, y=Calories, fill=Beverage_category))+geom_boxplot()
+ggplot(data=order(starbucks,by=Calories), aes(x=Beverage_category, y=Calories, fill=Beverage_category))+geom_boxplot()
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calores,FUN=median), y=Calories, fill=Beverage_category))+geom_boxplot()
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=Beverage_category))+geom_boxplot()
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=Beverage_category))+geom_boxplot()+xlab("Beverage category")
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=Beverage_category))+geom_boxplot()+xlab("Beverage category")+theme(axis.text.x = "")
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=Beverage_category))+geom_boxplot()+xlab("Beverage category")+theme(axis.text.x = element_blank())
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=Beverage_category))+geom_boxplot()+xlab("Beverage category")+theme(axis.text.x = element_blank(), legend.title = "Beverage Category")
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=Beverage_category))+geom_boxplot()+xlab("Beverage category")+theme(axis.text.x = element_blank(), legend.title = element_text("Beverage Category"))
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=Beverage_category))+geom_boxplot()+xlab("Beverage category")+theme(axis.text.x = element_blank(), legend.title = ("Beverage Category"))
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=Beverage_category))+geom_boxplot()+xlab("Beverage category")+theme(axis.text.x = element_blank())+scale_fill_discrete(name="Beverage Category")
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=Beverage_category))+geom_boxplot()+xlab("Beverage Category")+theme(axis.text.x = element_blank())+scale_fill_discrete(name="Beverage Category")
+ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=reorder(Beverage_category, Calories, FUN=median)))+geom_boxplot()+xlab("Beverage Category")+theme(axis.text.x = element_blank())+scale_fill_discrete(name="Beverage Category")
+# Plots ----
+## Calories x sugars ----
+calsugs_plot <- ggplot(data = starbucks, aes(x = Calories, y = sugars)) +
+geom_point()+
+geom_smooth(method="lm")+
+facet_wrap(~Beverage_category)
+calsugs_plot
+# Plots ----
+## Calories x sugars ----
+calsugs_plot <- ggplot(data = starbucks, aes(x = Calories, y = sugars)) +
+geom_point()+
+geom_smooth(method="lm")
+calsugs_plot
+calsugsbevs_plot <- ggplot(data = starbucks, aes(x = Calories, y = sugars)) +
+geom_point()+
+geom_smooth(method="lm")+
+facet_wrap(~Beverage_category)
+calsugsbevs_plot
+calsugsbevs_plot <- ggplot(data = starbucks, aes(x = sugars, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")+
+facet_wrap(~Beverage_category)
+# Plots ----
+## Calories x sugars ----
+calsugs_plot <- ggplot(data = starbucks, aes(x = sugars, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")
+calsugs_plot
+calbevs_plot <- ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=reorder(Beverage_category, Calories, FUN=median)))+geom_boxplot()+xlab("Beverage Category")+theme(axis.text.x = element_blank())+scale_fill_discrete(name="Beverage Category")
+calbevs_plot
+calsugs
+################################################### ###
+# Helper script for analyzing Starbucks drink data
+################################################### ###
+# R-Ladies LdnOnt Workshop on Using R Markdown to generate reports and manuscripts
+# March 6, 2018
+# Thea Knowles
+# thea.knowles@gmail.com
+# Setup ----
+# Note: You don't actually have to run this code when you want to use it in your RMarkdown documents
+# Run this line if you you've never installed these packages:
+#    install.packages(c("ggplot2", "dplyr", "Hmisc"))
+# Note: you can also check if you have them installed, and even install them directly, in your RStudio Packages panel or by clicking Tools >> Install Packages
+library(ggplot2)
+library(dplyr)
+library(Hmisc) # to use rcorr
+# Load data ----
+starbucks <- read.csv("starbucks_drinkMenu_expanded.csv")
+# View data
+# View(starbucks)
+# Modifying datatypes
+starbucks$size <- factor(starbucks$size,
+levels = c("short", "tall", "grande", "venti"))
+starbucks$total_fat <- as.numeric(starbucks$total_fat)
+starbucks$sugars <- as.numeric(starbucks$sugars)
+# Exploring data
+# Note these are not assigned (<-) to a variable name
+plot(starbucks$total_fat, starbucks$Calories)
+plot(starbucks$sugars, starbucks$Calories)
+# Summarise data
+calsugs <- summarise(group_by(starbucks, Beverage_category),
+cals = mean(Calories),
+sug = mean(sugars))
+# Linear models----
+# Need a refresher on regression? Check out Jaky's materials:
+#    https://github.com/rladies/meetup-presentations_london_ontario/tree/master/2017-12-05_regression
+# Model Calories as a function of total fat and sugar
+# Model 1: Calories ~ sugars
+mod1 <- lm(Calories ~ sugars, data=starbucks)
+summary(mod1)
+# Model 2: Calories ~ sugars + fat
+mod2 <- lm(Calories ~ sugars + total_fat, data=starbucks)
+# Compare models 1 and 2: does adding fat provide a better model fit?
+anova(mod1,mod2) # Sure does!
+summary(mod2)
+# Model 3: Calories ~ sugar*fat (include interaction between fat and sugar)
+mod3 <- lm(Calories ~ sugars*total_fat, data=starbucks)
+# Compare models 2 and 3: does adding the interaction provide a better model fit?
+anova(mod2,mod3) # No it does not; so we'll just use model2
+summary(mod3) # We can see that the interaction between sugars and fat isn't significant. Adding it to the model didn't improve the fit.
+# Renaming mod2 to something more useful
+cal_mod <- mod2
+cal_mod_sum <- summary(cal_mod)
+# Check Assumptions ----
+# Remember: Can check through the plots
+#    Comment these out when you're ready to write the manuscript, otherwise you'll be prompted to click through the plots in the console
+# plot(cal_mod)
+# Can also do the following
+#    LINEARITY (flat line) and HOMOSKEDACICITY (evenly distributed resids)
+# plot(cal_mod,which=1)
+#    NORMALITY (straight slope of resids)
+# qqnorm(residuals(cal_mod)) # good
+# Check to see whether fat and sugar are correlated; we want to avoid multicollinearity
+# They don't appear to be closely related
+ggplot(data = starbucks, aes(x = total_fat, y = sugars))+
+geom_point()+
+geom_smooth(method="lm")
+# They do have a significant but weak (r=.19) correlation
+rcorr(starbucks$total_fat, starbucks$sugars, type = "spearman")
+# Plots ----
+## Calories x sugars ----
+calsugs_plot <- ggplot(data = starbucks, aes(x = sugars, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")
+calsugsbevs_plot <- ggplot(data = starbucks, aes(x = sugars, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")+
+facet_wrap(~Beverage_category)
+calbevs_plot <- ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=reorder(Beverage_category, Calories, FUN=median)))+geom_boxplot()+xlab("Beverage Category")+theme(axis.text.x = element_blank())+scale_fill_discrete(name="Beverage Category")
+str(calsugs)
+kable(calsugs)
+library(kable)
+kable(calsugs)
+library(kable)
+install.packages("kable")
+install.packages("kableExtra")
+kable(calsugs)
+library(kableExtra)
+kable(calsugs)
+kable(calsugs, "html")
+library(kableExtra)
+knitr::kable(calsugs, "html")
+knitr::kable(calsugs)
+knitr::kable(calsugs)
+calsugs
+knitr::kable(calsugs)
+ggplot(data=starbucks, aes(x=Beverage_category, y=Calories)+geom_boxplot()
+ggplot(data=starbucks, aes(x=Beverage_category, y=Calories))+
+geom_boxplot()
+ggplot(data=starbucks, aes(x=Beverage_category, y=Calories))+
+geom_boxplot()
+ggplot(data=starbucks, aes(x=Beverage_category, y=Calories, fill=Beverage_category))+
+geom_boxplot()
+library(ggplot2)
+library(dplyr)
+library(Hmisc) # to use rcorr
+source('helper.R')
+emo::ji_find("dance")
+emo::ji_find("dancing")
+emo::ji_find("people")
+emo::ji_find("friends")
+emo::ji_find("friend")
+emo::ji_find("person")
+emo::ji_find("cat")
+emo::ji_find("women")
+emo::ji_completion("women")
+emo::ji_completion("people")
+emo::ji_completion("family")
+emo::ji_completion("people")
+emo::ji_completion("girls")
+emo::ji_completion("friends")
+emo::ji_completion("person")
+emo::ji_completion("party")
+emo::ji_completion("knit")
+emo::ji_completion("string")
+calsugs_plot
+emo::ji_completion("magnify")
+??jpg
+??jpeg
+??knitr::kable()
+??kable()
+str(mod1)
+mod1$coefficients
+summary(mod1)
+mod1_summary <- summary(mod1)
+str(mod1_summary)
+View(mod1_summary)
+mod1_summary$coefficients
+mod1_summary$coefficients["sugars", "t value"]
+round(mod1_summary$coefficients["sugars", "t value"],3)
+mod1_coeffs
+mod1_coeffs <- mod1_summary$coefficients
+mod1_coeffs
+mod1_coeffs
+mod1_coeffs[2,1]
+mod1_coeffs[,2]
+mod1_coeffs[,4]
+mod1_coeffs[,4] <- as.character(lapply(mod1_coeffs[,4], function(x){return(ifelse(x<0.001, "<0.001", as.character(round(x,3))))}))
+mod1_coeffs
+mod1_coeffs
+# This code won't be included in the output.
+mod1_summary <- summary(mod1)
+mod1_coeffs <- mod1_summary$coefficients
+mod1_coeffs
+mod1_coeffs[,4]
+mod1_coeffs
+# First, round all numbers to 3 digits
+mod1_coeffs[,c(1:4)] <- round(mod1_coeffs[,c(1:4)],3)
+mod1_coeffs
+# pvals are in column 4
+mod1_coeffs[,4] <- as.character(lapply(mod1_coeffs[,4], function(x){return(ifelse(x<0.001, "<0.001", as.character(round(x,3))))}))
+mod1_coeffs
+knitr::kable((mod1_coeffs), digits=3)
+knitr::kable((mod1_coeffs))
+mod1_coeffs
+source("helper.R")
+calsugs
+################################################### ###
+# Helper script for analyzing Starbucks drink data
+################################################### ###
+# R-Ladies LdnOnt Workshop on Using R Markdown to generate reports and manuscripts
+# March 6, 2018
+# Thea Knowles
+# thea.knowles@gmail.com
+# Setup ----
+# Run this line if you you've never installed these packages:
+#    install.packages(c("ggplot2", "dplyr", "Hmisc", "kableExtra"))
+# Note: you can also check if you have them installed, and even install them directly, in your RStudio Packages panel or by clicking Tools >> Install Packages
+library(ggplot2)
+library(dplyr)
+library(Hmisc) # to use rcorr
+library(kableExtra)
+# Load data ----
+starbucks <- read.csv("starbucks_drinkMenu_expanded.csv")
+# View data
+# View(starbucks)
+# Summarise data ----
+calsugs <- summarise(group_by(starbucks, Beverage_category),
+cals = mean(Calories),
+sug = mean(sugars))
+# Models ----
+# Model Calories as a function of sugar
+mod1 <- lm(Calories ~ sugars, data=starbucks)
+summary(mod1)
+# IMPORTAT NOTE! This is just an example. We are missing some important steps here! See Jaky's intro to regression to see how you'd check model assumptions, etc.!
+# Plots ----
+## Calories x sugars ----
+calsugs_plot <- ggplot(data = starbucks, aes(x = sugars, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")
+calsugsbevs_plot <- ggplot(data = starbucks, aes(x = sugars, y = Calories)) +
+geom_point()+
+geom_smooth(method="lm")+
+facet_wrap(~Beverage_category)
+calbevs_plot <- ggplot(data=starbucks, aes(x=reorder(Beverage_category,Calories,FUN=median), y=Calories, fill=reorder(Beverage_category, Calories, FUN=median)))+geom_boxplot()+xlab("Beverage Category")+theme(axis.text.x = element_blank())+scale_fill_discrete(name="Beverage Category")
+emo::ji_completion("foot")
+emo::ji_completion("feet")
+emo::ji_completion("foot")
