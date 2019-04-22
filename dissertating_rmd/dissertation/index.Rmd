@@ -1,25 +1,8 @@
 --- 
-output_dir: "../../docs"
 bibliography: references.bib
-output:
-  bookdown::pdf_book:
-    toc: no
-    template: null
-    latex_engine: xelatex
-    keep_tex: yes
-    includes:
-      in_header: parameters/preamble.tex
-      before_body: parameters/doc_preface.tex
-  bookdown::gitbook: default
-  html_document:
-    toc: yes
-  bookdown::word_document2:
-    fig_caption: yes
-    md_extensions: +footnotes
-    reference_docx: uwo_thesis_template.docx
-    toc: yes
+site: bookdown::bookdown_site
+output: bookdown::gitbook
 documentclass: book
-classoption: oneside
 fontsize: 12pt
 subparagraph: yes
 link-citations: no
