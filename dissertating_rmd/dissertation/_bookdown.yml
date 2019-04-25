@@ -1,7 +1,0 @@
-book_filename: "dissertating_rmd"
-language:
-  ui:
-    chapter_name: "Chapter "
-delete_merged_file: true
-output_dir: "docs"
-site: bookdown::bookdown_site

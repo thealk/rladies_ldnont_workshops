@@ -15,7 +15,7 @@ output:
   bookdown::word_document2:
     fig_caption: yes
     md_extensions: +footnotes
-    reference_docx: uwo_thesis_template.docx
+    reference_docx: parameters/uwo_thesis_template.docx
     toc: yes
 documentclass: book
 classoption: oneside

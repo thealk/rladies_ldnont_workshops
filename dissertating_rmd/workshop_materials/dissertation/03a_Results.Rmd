@@ -40,9 +40,9 @@ calbevs_plot
 ```
 
 
-See Table \@ref(tab:calsugs_tab).
+See Table \@ref(tab:calsugs-tab).
 
-```{r calsugs_tab, results='asis', echo = FALSE}
+```{r calsugs-tab, results='asis', echo = FALSE}
 knitr::kable((calsugs), booktabs=T, caption="Calories and sugars for each beverage.")
 ```
 

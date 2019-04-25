@@ -1,0 +1,16 @@
+
+# Other great resources {#resources}
+
+As mentioned, this is but one way of doing things, and I have scraped it together based on the incredibly useful resources others before me have made available. Here are some of the ones I have found most helpful.
+
+- [Lucy's blog post](https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/)
+- [Angela Li's thread](https://twitter.com/CivicAngela/status/1024469727274565633)
+- [Rosanna van Hespen's blog series](https://rosannavanhespenresearch.wordpress.com/2016/02/03/writing-your-thesis-with-r-markdown-1-getting-started/)
+- [Chester Ismay's thesisdown package and examples](https://github.com/ismayc/thesisdown) (see other people's adaptations within, as well!)
+  - Hope is to incorporate our Western template eventually!
+- [Ed Berry's blog post](https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/)
+- [Tyson Barret's blog post](https://tysonbarrett.com/jekyll/update/2018/02/11/r_dissertation/)
+- [TJ Mahr's dissertation materials](https://github.com/tjmahr/dissertation)
+- [RStudio community post on thesis writing](https://community.rstudio.com/t/what-are-your-recommendations-for-thesis-writing-with-rstudio-and-rmarkdown/13576)
+- [knitr examples](https://github.com/yihui/knitr-examples)
+- [academicWriteR: an R package of helper functions for writing manuscripts](https://github.com/jvcasillas/academicWriteR)

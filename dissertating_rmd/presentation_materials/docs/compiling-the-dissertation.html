@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Compiling the dissertation! | dissertating_rmd_presentation.utf8.md</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown  and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Compiling the dissertation! | dissertating_rmd_presentation.utf8.md" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Compiling the dissertation! | dissertating_rmd_presentation.utf8.md" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="chapter-writing.html">
+<link rel="next" href="intermediary-stages.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Dissertating with bookdown</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Dissertating with RMarkdown and Bookdown</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#a-preliminary-guide"><i class="fa fa-check"></i><b>1.1</b> A preliminary guide</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#setting-up"><i class="fa fa-check"></i><b>1.2</b> Setting up</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#process"><i class="fa fa-check"></i><b>1.3</b> My current process: A glimpse</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="crashcourse.html"><a href="crashcourse.html"><i class="fa fa-check"></i><b>2</b> R Markdown crash course</a><ul>
+<li class="chapter" data-level="2.1" data-path="crashcourse.html"><a href="crashcourse.html#markdown-syntax-basics"><i class="fa fa-check"></i><b>2.1</b> Markdown syntax basics</a><ul>
+<li class="chapter" data-level="" data-path="crashcourse.html"><a href="crashcourse.html#r-code"><i class="fa fa-check"></i>R code</a></li>
+<li class="chapter" data-level="" data-path="crashcourse.html"><a href="crashcourse.html#exercise-1"><i class="fa fa-check"></i>Exercise 1</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="crashcourse.html"><a href="crashcourse.html#more-resources"><i class="fa fa-check"></i><b>2.2</b> More resources</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="getting-organized.html"><a href="getting-organized.html"><i class="fa fa-check"></i><b>3</b> Getting organized</a><ul>
+<li class="chapter" data-level="3.1" data-path="getting-organized.html"><a href="getting-organized.html#dir-structure"><i class="fa fa-check"></i><b>3.1</b> Directory structure</a></li>
+<li class="chapter" data-level="3.2" data-path="getting-organized.html"><a href="getting-organized.html#more-resources-1"><i class="fa fa-check"></i><b>3.2</b> More resources</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="chapter-writing.html"><a href="chapter-writing.html"><i class="fa fa-check"></i><b>4</b> Writing a chapter</a><ul>
+<li class="chapter" data-level="4.1" data-path="chapter-writing.html"><a href="chapter-writing.html#lite-version"><i class="fa fa-check"></i><b>4.1</b> Lite version</a></li>
+<li class="chapter" data-level="4.2" data-path="chapter-writing.html"><a href="chapter-writing.html#heavy-duty-version"><i class="fa fa-check"></i><b>4.2</b> Heavy-duty version</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="compiling-the-dissertation.html"><a href="compiling-the-dissertation.html"><i class="fa fa-check"></i><b>5</b> Compiling the dissertation!</a><ul>
+<li class="chapter" data-level="5.1" data-path="compiling-the-dissertation.html"><a href="compiling-the-dissertation.html#the-workhorses"><i class="fa fa-check"></i><b>5.1</b> The workhorses</a></li>
+<li class="chapter" data-level="5.2" data-path="compiling-the-dissertation.html"><a href="compiling-the-dissertation.html#ready-set-render"><i class="fa fa-check"></i><b>5.2</b> Ready, set, render!</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="intermediary-stages.html"><a href="intermediary-stages.html"><i class="fa fa-check"></i><b>6</b> Intermediary stages</a></li>
+<li class="chapter" data-level="7" data-path="previews.html"><a href="previews.html"><i class="fa fa-check"></i><b>7</b> Previews and collaborations</a></li>
+<li class="chapter" data-level="8" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html"><i class="fa fa-check"></i><b>8</b> Nitty gritty stuff</a><ul>
+<li class="chapter" data-level="8.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#reference-management"><i class="fa fa-check"></i><b>8.1</b> Reference management</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#citing-r-packages"><i class="fa fa-check"></i><b>8.1.1</b> Citing R packages</a></li>
+<li class="chapter" data-level="" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#more-resources-2"><i class="fa fa-check"></i>More resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#notes-to-self-within-text"><i class="fa fa-check"></i><b>8.2</b> Notes to self within text</a></li>
+<li class="chapter" data-level="8.3" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#snippets"><i class="fa fa-check"></i><b>8.3</b> Snippets!</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#more-resources-3"><i class="fa fa-check"></i><b>8.3.1</b> More resources</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#predefined-functions"><i class="fa fa-check"></i><b>8.4</b> Predefined functions</a><ul>
+<li class="chapter" data-level="8.4.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#where-to-keep-your-functions"><i class="fa fa-check"></i><b>8.4.1</b> Where to keep your functions</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#autogenerating-tablefigure-numbers"><i class="fa fa-check"></i><b>8.5</b> Autogenerating table/figure numbers</a></li>
+<li class="chapter" data-level="8.6" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#version-control"><i class="fa fa-check"></i><b>8.6</b> Version control</a><ul>
+<li class="chapter" data-level="" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#other-resources"><i class="fa fa-check"></i>Other resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises</a><ul>
+<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a></li>
+<li class="chapter" data-level="9.2" data-path="exercises.html"><a href="exercises.html#ex2"><i class="fa fa-check"></i><b>9.2</b> Exercise 2. What’s in a chapter? Lite version</a></li>
+<li class="chapter" data-level="9.3" data-path="exercises.html"><a href="exercises.html#ex3"><i class="fa fa-check"></i><b>9.3</b> Exercise 3. What’s in a chapter? Heavy-duty version</a></li>
+<li class="chapter" data-level="9.4" data-path="exercises.html"><a href="exercises.html#ex4"><i class="fa fa-check"></i><b>9.4</b> Exercise 4. Render the book!</a></li>
+<li class="chapter" data-level="9.5" data-path="exercises.html"><a href="exercises.html#ex5"><i class="fa fa-check"></i><b>9.5</b> Exercise 5. Edit the front matter</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>10</b> Closing thoughts</a><ul>
+<li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#table-formatting"><i class="fa fa-check"></i>Table formatting</a></li>
+<li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#parameter-files-a-neater-nicer-way"><i class="fa fa-check"></i>Parameter files: A neater, nicer way?</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>11</b> Other great resources</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="compiling-the-dissertation" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Compiling the dissertation!</h1>
+<p><em>This section is heavily informed by Lucy’s beautiful <a href="https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/">blog post</a> and accompanying <a href="https://github.com/LucyMcGowan/dissertation-toolkit">toolkit</a>.</em></p>
+<p>Now that we have the bare bones of a dissertation, we can compile it for the first time.</p>
+<p><strong>Go to exercise 4 in Section <a href="exercises.html#ex4">9.4</a></strong></p>
+<p>Recall that, for this method, the <strong>essential ingredients</strong> are:</p>
+<ul>
+<li>your .Rmd files (chapters)</li>
+<li>index.Rmd</li>
+</ul>
+<p><strong>Optional ingredients:</strong></p>
+<ul>
+<li>references.bib</li>
+<li>templates</li>
+</ul>
+<div id="the-workhorses" class="section level2">
+<h2><span class="header-section-number">5.1</span> The workhorses</h2>
+<p>The files that will do the heavy lifting in order for your dissertation to compile as a PDF are:</p>
+<ul>
+<li><code>index.Rmd</code> contains the YAML<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></li>
+<li><code>params.tex</code></li>
+<li><code>preamble.tex</code></li>
+</ul>
+<p><strong><code>index.Rmd</code></strong>
+<img src="images/index_yaml.png" /></p>
+<p>This contains a lot of info. You can specify different options for each output type you plan to compile. Since we’ll be compiling to PDF (<code>pdf_book</code>), let’s take a closer look at that section:</p>
+<pre><code>output:
+  bookdown::pdf_book:
+    toc: no
+    template: null
+    latex_engine: xelatex
+    keep_tex: yes
+    includes:
+      in_header: templates/preamble.tex
+      before_body: templates/doc_preface.tex</code></pre>
+<p>Importantly, we are pointing to the two other workhorses necessary for the PDF output: the .tex files. Note that these are adapted from people who know a lot more about LaTeX than I do; I changed very little, and mostly just moved stuff around. In their current form, they will output a document that adheres to the current Western thesis standards<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
+<ul>
+<li>The <code>in_header</code> line tells bookdown to incorporate everything in <code>preamble.tex</code>. If you’re familiar with LaTex, this is everything that comes before <code>\begin{document}</code>. This also contains important info like your name, department, thesis title, etc…</li>
+</ul>
+<p><strong>preamble.tex</strong></p>
+<p><img src="images/preamble.png" /></p>
+<ul>
+<li>The <code>before_body</code> line points to <code>doc_preface.tex</code> which contains all the pre-body text including the abstract, acknowledgements, table of contents, etc</li>
+</ul>
+<p><strong>doc_preface.tex</strong></p>
+<p><img src="images/doc_preface.png" /></p>
+</div>
+<div id="ready-set-render" class="section level2">
+<h2><span class="header-section-number">5.2</span> Ready, set, render!</h2>
+<p>To compile your dissertation for the first time, enter the following code in the console:</p>
+<pre><code>bookdown::render_book(&quot;index.Rmd&quot;, &quot;bookdown::pdf_book&quot;)</code></pre>
+<p>Note that here we are specifying the <code>pdf_book</code> output format, but we don’t actually have to since it happens to be the first, and therefore default, output format specified in our YAML. We could just as successfully run <code>bookdown::render_book("index.Rmd")</code>.</p>
+<p>If all goes according to plan, you will see a smattering of new folders and files.
+Your shiny new book can be found in <code>_book/_main.pdf</code></p>
+<p>If things did <em>not</em> go according to plan, you will get an error and a request that you delete <code>_main.Rmd</code> before recompiling. <code>_main.Rmd</code> is a document that’s created in the process, but gets deleted when the final output has successfully compiled. It can often give you hints as to what went wrong (the lines where it got tripped up will be echoed in the error message). As instructed, you must delete it before you try to render again.</p>
+<p><strong>Other things to know</strong></p>
+<ul>
+<li>This is the “Merge-and-Knit” approach. See Yihui’s explanation of other rendering approaches <a href="https://bookdown.org/yihui/bookdown/new-session.html">here</a>.</li>
+<li>Yihui also recommends not rendering the full PDF that often, as it can be very time consuming when the output is large, and you run the risk of getting caught up with typesetting queries that are best left to the end.
+There is a way to <a href="https://bookdown.org/yihui/bookdown/some-tips.html">preview individual chapters</a> that Yihui has included in bookdown, but I will also discuss my own preview methods later on.</li>
+<li>If you choose to use the LaTeX nomenclature package to handle abbreviations, you need to do some additional work to get the abbreviations to show up the first time. I recommend scrolling to this section in <a href="https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/">Lucy’s blog post</a></li>
+<li>Chapter headers (Chapter 1, Chapter 2, etc) are inserted when you use a first level header, e.g. <code># Header 1</code>. Subsections within a chapter are assigned based on the subheaders you use (e.g., <code>## Header 2</code>, <code>### Header 3</code>…)</li>
+</ul>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> (rhymes with camel): The frontmatter/metadata that tells R Markdown how to generate your document. Indentation and spacing are <strong>very important</strong>. Stands for “YAML Ain’t Markup Language” or, less meta, “Yet Another Multicolumn Layout.”<a href="compiling-the-dissertation.html#fnref5" class="footnote-back">↩</a></p></li>
+<li id="fn6"><p>The <a href="https://github.com/ismayc/thesisdown"><code>thesisdown package readme</code></a> has a nice list of other templates that people have adapted for their universities if you’d like to compare other .tex input files.<a href="compiling-the-dissertation.html#fnref6" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="chapter-writing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="intermediary-stages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/02_Basics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["dissertating_rmd_presentation.pdf", "dissertating_rmd_presentation.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
