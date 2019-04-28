@@ -744,27 +744,67 @@ Figure \ref{fig:figlabel} is shown here.
 
 See Table \ref{tab:calsugs-tab}.
 
-\begin{table}[t]
+\label{tab:calsugs-tab}Calories and sugars for each beverage.
 
-\caption{\label{tab:calsugs-tab}Calories and sugars for each beverage.}
-\centering
-\begin{tabular}{lrr}
-\toprule
-Beverage\_category & cals & sug\\
-\midrule
-Classic Espresso Drinks & 144.91 & 17.6\\
-Coffee & 4.25 & 0.0\\
-Frappuccino Blended Coffee & 276.94 & 57.1\\
-Frappuccino BlendedCreme & 233.08 & 48.5\\
-Frappuccino Light Blended Coffee & 162.50 & 32.4\\
-\addlinespace
-Shaken Iced Beverages & 114.44 & 26.0\\
-Signature Espresso Drinks & 250.00 & 38.6\\
-Smoothies & 282.22 & 36.8\\
-Tazo Tea Drinks & 177.31 & 30.3\\
-\bottomrule
-\end{tabular}
-\end{table}
+Beverage\_category
+
+cals
+
+sug
+
+Classic Espresso Drinks
+
+144.91
+
+17.6
+
+Coffee
+
+4.25
+
+0.0
+
+Frappuccino Blended Coffee
+
+276.94
+
+57.1
+
+Frappuccino BlendedCreme
+
+233.08
+
+48.5
+
+Frappuccino Light Blended Coffee
+
+162.50
+
+32.4
+
+Shaken Iced Beverages
+
+114.44
+
+26.0
+
+Signature Espresso Drinks
+
+250.00
+
+38.6
+
+Smoothies
+
+282.22
+
+36.8
+
+Tazo Tea Drinks
+
+177.31
+
+30.3
 
 We can also just redo the plot
 
@@ -794,20 +834,35 @@ As previously stated, sugars demonstrated a significant main effect on the calor
 
 Here I will reference a table.
 
-\begin{table}[t]
+\label{tab:mod1Coefs}This is the caption for my model coefficients table.
 
-\caption{\label{tab:mod1Coefs}This is the caption for my model coefficients table.}
-\centering
-\begin{tabular}{l|l|l|l|l}
-\hline
-  & Estimate & Std. Error & t value & Pr(>|t|)\\
-\hline
-(Intercept) & 38.518 & 5.464 & 7.049 & <0.001\\
-\hline
-sugars & 4.721 & 0.142 & 33.311 & <0.001\\
-\hline
-\end{tabular}
-\end{table}
+Estimate
+
+Std. Error
+
+t value
+
+Pr(\textgreater\textbar t\textbar)
+
+(Intercept)
+
+38.518
+
+5.464
+
+7.049
+
+\textless0.001
+
+sugars
+
+4.721
+
+0.142
+
+33.311
+
+\textless0.001
 
 \textbf{Other stuff}
 
@@ -833,8 +888,8 @@ Some journals require that you upload figures and tables separately. In this cas
 \end{Shaded}
 
 \begin{verbatim}
-## pdf 
-##   2
+## RStudioGD 
+##         2
 \end{verbatim}
 
 You could, for example, make a subdirectory called ``\texttt{figures}'', and include that in the path.
@@ -844,6 +899,14 @@ You could, for example, make a subdirectory called ``\texttt{figures}'', and inc
 
 \hypertarget{another-results-section}{%
 \section{Another results section}\label{another-results-section}}
+
+This is some text! I am going to call a value from \texttt{helper.R}. The mean of \emph{cholesterol} level in Starbucks drinks is 36.279
+
+\begin{figure}
+\centering
+\includegraphics{rladies_dissertation_files/figure-latex/unnamed-chunk-5-1.pdf}
+\caption{\label{fig:unnamed-chunk-5}Histogram of cholesterol}
+\end{figure}
 
 \hypertarget{references}{%
 \chapter*{References}\label{references}}

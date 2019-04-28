@@ -29,7 +29,8 @@ We won't go into this in *too* much detail
 **Knit your document**
 
 ![](images/knit.png)
-### Options to try
+
+### Options to try {-}
 - Make a list
 - Add some first and second level headers
 - Add some **bold** text and *italic* text

@@ -1,12 +1,12 @@
 
 # R Markdown crash course {#crashcourse}
 
-*But first: A crash course in RMarkdown*
+*But first: A crash course in R Markdown*
 
 In Spring 2018 at R-Ladies #LdnOnt we practiced making a [manuscript using RMarkdown](https://github.com/rladies/meetup-presentations_london_ontario/tree/master/2018-03-06_rmarkdown) ([slides](http://rpubs.com/thealk/368020)). 
 Today we will up the ante and write a whole[^1] dissertation using R Markdown!
 
-[^1]: More like a smidgin than a whole, really.
+[^1]: More like a smidgen than a whole, really.
 
 ## Markdown syntax basics
 You can write plain old text like this, or you can make *italic* text by encasing it in single underscores or asterisks (`*like this!*`), **bold** text by surrounding it with two (`**like this!!**`) or ***bold and italic*** by surrounding it with three (`***like this!!!***`).
@@ -62,12 +62,12 @@ R code can be included in *chunks*. A chunk can be inserted via the Source pane 
     x <- 2
     ```
 ### Exercise 1 {-}
-**Get up and running with RMarkdown and R Projects: Do exercise 1 in Section \@ref(ex1)**
+**Get up and running with R Markdown and R Projects: Do exercise 1 in Section \@ref(ex1)**
 
 ## More resources
 
 - [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
-- [The `bookdown` manual's brief intro](https://bookdown.org/yihui/bookdown/markdown-syntax.html)
+- [bookdown's Markdown syntax chapter](https://bookdown.org/yihui/bookdown/markdown-syntax.html)
 - [R Studio R Markdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
 - [R Studio intro to R Markdown](https://bookdown.org/connect/#/apps/2515/access)
 - [R-Ladies #LdnOnt R Markdown presentation](https://github.com/rladies/meetup-presentations_london_ontario/tree/master/2018-03-06_rmarkdown)
@@ -78,14 +78,16 @@ R code can be included in *chunks*. A chunk can be inserted via the Source pane 
 
 # Getting organized
 ## Directory structure {#dir-structure}
-*A suggestion based on the advice of several clever people I have copied:*
+*A suggestion based on the advice of several clever people I have copied[^948]:*
+
+[^948]: Specifically, thank you [Yihui Xie](https://github.com/rstudio/bookdown-demo) for the bookdown demo, [Jenny Bryan](https://whattheyforgot.org/project-oriented-workflow.html) for the project-oriented workflow wisdom, [Lucy D'Agostino McGowan](https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/) for the "One Year to Dissertate" post, and [Angela Li](https://twitter.com/CivicAngela/status/1024469727274565633) for the thread and screenshots of your process!
 
 ![](images/dir_structure.png)
 
-In this example...
+In this example (following [Lucy's file structure](https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/)...
 
 #### dissertation {-}
-Contains your individual RMarkdown files that contain the bulk of the text of the dissertation. 
+Contains your individual R Markdown files that contain the bulk of the text of the dissertation. 
 
 - `index.Rmd`: Contains your YAML (metadata) that will tell bookdown how to render your book
 
@@ -94,7 +96,7 @@ Contains your individual RMarkdown files that contain the bulk of the text of th
   - In a nutshell, file names should be 
     - **machine readable**
     - **human readable**
-    - **play well with default ordering** [(thank you, Jenny Bryan)](https://speakerdeck.com/jennybc/how-to-name-files).
+    - **play well with default ordering** [(merci, Jenny Bryan)](https://speakerdeck.com/jennybc/how-to-name-files).
   - The names of the files themselves don't appear anywhere in the final document. For that, you need to use headers within the body of the .Rmd documents
 - `references.bib` is a bib file containing your references. Most popular reference management tools have the option to export your references to a .bib file.
 
@@ -120,7 +122,7 @@ Contains any helper scripts you used along the way (e.g., for your analysis)
 
 # Writing a chapter {#chapter-writing}
 
-We will now create a single chapter in RMarkdown.
+We will now create a single chapter in R Markdown.
 
 ## Lite version
 
@@ -164,8 +166,8 @@ Recall that, for this method, the **essential ingredients** are:
 The files that will do the heavy lifting in order for your dissertation to compile as a PDF are: 
 
 - `index.Rmd` contains the YAML[^yaml]
-- `params.tex`
 - `preamble.tex`
+- `doc_preface.tex`
 
 [^yaml]: [YAML](https://en.wikipedia.org/wiki/YAML) (rhymes with camel): The frontmatter/metadata that tells R Markdown how to generate your document. Indentation and spacing are **very important**. Stands for "YAML Ain't Markup Language" or, less meta, "Yet Another Multicolumn Layout." 
 
@@ -189,9 +191,9 @@ output:
 
 Importantly, we are pointing to the two other workhorses necessary for the PDF output: the .tex files. Note that these are adapted from people who know a lot more about LaTeX than I do; I changed very little, and mostly just moved stuff around. In their current form, they will output a document that adheres to the current Western thesis standards[^other-uni-tex].
 
-[^other-uni-tex]: The [`thesisdown package readme`](https://github.com/ismayc/thesisdown) has a nice list of other templates that people have adapted for their universities if you'd like to compare other .tex input files.
+[^other-uni-tex]: The [`thesisdown` package readme](https://github.com/ismayc/thesisdown) has a nice list of other templates that people have adapted for their universities if you'd like to compare other .tex input files.
 
-- The `in_header` line tells bookdown to incorporate everything in `preamble.tex`. If you're familiar with LaTex, this is everything that comes before `\begin{document}`. This also contains important info like your name, department, thesis title, etc...
+- The `in_header` line tells bookdown to incorporate everything in `preamble.tex`. If you're familiar with LaTeX, this is everything that comes before `\begin{document}`. This also contains important info like your name, department, thesis title, etc...
 
 **preamble.tex**
 
@@ -215,7 +217,9 @@ bookdown::render_book("index.Rmd", "bookdown::pdf_book")
 Note that here we are specifying the `pdf_book` output format, but we don't actually have to since it happens to be the first, and therefore default, output format specified in our YAML. We could just as successfully run `bookdown::render_book("index.Rmd")`.
 
 If all goes according to plan, you will see a smattering of new folders and files.
-Your shiny new book can be found in `_book/_main.pdf`
+Your shiny new book can be found in `docs/_main.pdf`[^1156].
+
+[^1156]: Whether you output to "docs" or somewhere else, and what the "main" PDF wil be called can all be changed in `_bookdown.yaml` document. If you don't include this document, the default folder is `_book` and the default name is `_main`.
 
 If things did *not* go according to plan, you will get an error and a request that you delete `_main.Rmd` before recompiling. `_main.Rmd` is a document that's created in the process, but gets deleted when the final output has successfully compiled. It can often give you hints as to what went wrong (the lines where it got tripped up will be echoed in the error message). As instructed, you must delete it before you try to render again.
 
@@ -244,7 +248,7 @@ In the interim, I have a couple of different methods for viewing my work. These 
 
 # Previews and collaborations {#previews}
 
-One of the reasons I have fallen so completely in love with RMarkdown is it lets me putter away in my ideal workflow (do stuff in R, integrate directly in document, have full control over style parameters), AND honour my supervisor's desire to receive .docx documents.
+One of the reasons I have fallen so completely in love with R Markdown is it lets me putter away in my ideal workflow (do stuff in R, integrate directly in document, have full control over style parameters), AND honour my supervisor's desire to receive .docx documents.
 
 While my final output will be rendered as a PDF, and my interim document will be rendered as HTML, the drafts that get sent to my supervisor must be in Word. 
 
@@ -252,7 +256,7 @@ As previously mentioned, bookdown specifically has a function to render previews
 
 I strayed away from this option because sometimes I found myself wanting to send my supervisor multiple parts of my dissertation at once (e.g., part of the methods, part of the results), but I don't care if he sees the front matter of the dissertation skeleton. To do this, I have the following protocol in place:
 
-- Subdirectory called `previews` that contains one file: `render_preview.Rmd`
+- Sub-directory called `previews` that contains one file: `render_preview.Rmd`
 - `render_preview` contains:
   - minimal YAML required to output a legible .docx file
   - minimal setup chunk identical to what I have in `index.Rmd`

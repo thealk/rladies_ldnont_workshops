@@ -156,7 +156,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="previews.html"><a href="previews.html"><i class="fa fa-check"></i><b>7</b> Previews and collaborations</a></li>
 <li class="chapter" data-level="8" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html"><i class="fa fa-check"></i><b>8</b> Nitty gritty stuff</a><ul>
 <li class="chapter" data-level="8.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#reference-management"><i class="fa fa-check"></i><b>8.1</b> Reference management</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#citing-r-packages"><i class="fa fa-check"></i><b>8.1.1</b> Citing R packages</a></li>
 <li class="chapter" data-level="" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#more-resources-2"><i class="fa fa-check"></i>More resources</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#notes-to-self-within-text"><i class="fa fa-check"></i><b>8.2</b> Notes to self within text</a></li>
@@ -172,7 +171,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises</a><ul>
-<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a></li>
+<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a><ul>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html#options-to-try"><i class="fa fa-check"></i>Options to try</a></li>
+</ul></li>
 <li class="chapter" data-level="9.2" data-path="exercises.html"><a href="exercises.html#ex2"><i class="fa fa-check"></i><b>9.2</b> Exercise 2. What’s in a chapter? Lite version</a></li>
 <li class="chapter" data-level="9.3" data-path="exercises.html"><a href="exercises.html#ex3"><i class="fa fa-check"></i><b>9.3</b> Exercise 3. What’s in a chapter? Heavy-duty version</a></li>
 <li class="chapter" data-level="9.4" data-path="exercises.html"><a href="exercises.html#ex4"><i class="fa fa-check"></i><b>9.4</b> Exercise 4. Render the book!</a></li>
@@ -181,6 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>10</b> Closing thoughts</a><ul>
 <li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#table-formatting"><i class="fa fa-check"></i>Table formatting</a></li>
 <li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#parameter-files-a-neater-nicer-way"><i class="fa fa-check"></i>Parameter files: A neater, nicer way?</a></li>
+<li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#collaboration-still-a-hurdle"><i class="fa fa-check"></i>Collaboration: still a hurdle</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>11</b> Other great resources</a></li>
 <li class="divider"></li>
@@ -207,12 +209,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 3</span> Getting organized</h1>
 <div id="dir-structure" class="section level2">
 <h2><span class="header-section-number">3.1</span> Directory structure</h2>
-<p><em>A suggestion based on the advice of several clever people I have copied:</em></p>
+<p><em>A suggestion based on the advice of several clever people I have copied<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>:</em></p>
 <p><img src="images/dir_structure.png" /></p>
-<p>In this example…</p>
+<p>In this example (following <a href="https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/">Lucy’s file structure</a>…</p>
 <div id="dissertation" class="section level4 unnumbered">
 <h4>dissertation</h4>
-<p>Contains your individual RMarkdown files that contain the bulk of the text of the dissertation.</p>
+<p>Contains your individual R Markdown files that contain the bulk of the text of the dissertation.</p>
 <ul>
 <li><p><code>index.Rmd</code>: Contains your YAML (metadata) that will tell bookdown how to render your book</p></li>
 <li><p><code>.Rmd</code> files that comprise the body of your book. These can be specific chapters, but can also be constructed modularly in whatever way you choose.</p>
@@ -222,7 +224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><strong>machine readable</strong></li>
 <li><strong>human readable</strong></li>
-<li><strong>play well with default ordering</strong> <a href="https://speakerdeck.com/jennybc/how-to-name-files">(thank you, Jenny Bryan)</a>.</li>
+<li><strong>play well with default ordering</strong> <a href="https://speakerdeck.com/jennybc/how-to-name-files">(merci, Jenny Bryan)</a>.</li>
 </ul></li>
 <li>The names of the files themselves don’t appear anywhere in the final document. For that, you need to use headers within the body of the .Rmd documents</li>
 </ul></li>
@@ -254,6 +256,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="https://whattheyforgot.org/">Jenny Bryan’s “What they forgot to tell you about R”</a></li>
 </ul>
 </div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="5">
+<li id="fn5"><p>Specifically, thank you <a href="https://github.com/rstudio/bookdown-demo">Yihui Xie</a> for the bookdown demo, <a href="https://whattheyforgot.org/project-oriented-workflow.html">Jenny Bryan</a> for the project-oriented workflow wisdom, <a href="https://livefreeordichotomize.com/2018/09/14/one-year-to-dissertate/">Lucy D’Agostino McGowan</a> for the “One Year to Dissertate” post, and <a href="https://twitter.com/CivicAngela/status/1024469727274565633">Angela Li</a> for the thread and screenshots of your process!<a href="getting-organized.html#fnref5" class="footnote-back">↩</a></p></li>
+</ol>
 </div>
             </section>
 

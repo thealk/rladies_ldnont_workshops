@@ -156,7 +156,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="previews.html"><a href="previews.html"><i class="fa fa-check"></i><b>7</b> Previews and collaborations</a></li>
 <li class="chapter" data-level="8" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html"><i class="fa fa-check"></i><b>8</b> Nitty gritty stuff</a><ul>
 <li class="chapter" data-level="8.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#reference-management"><i class="fa fa-check"></i><b>8.1</b> Reference management</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#citing-r-packages"><i class="fa fa-check"></i><b>8.1.1</b> Citing R packages</a></li>
 <li class="chapter" data-level="" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#more-resources-2"><i class="fa fa-check"></i>More resources</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#notes-to-self-within-text"><i class="fa fa-check"></i><b>8.2</b> Notes to self within text</a></li>
@@ -172,7 +171,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises</a><ul>
-<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a></li>
+<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a><ul>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html#options-to-try"><i class="fa fa-check"></i>Options to try</a></li>
+</ul></li>
 <li class="chapter" data-level="9.2" data-path="exercises.html"><a href="exercises.html#ex2"><i class="fa fa-check"></i><b>9.2</b> Exercise 2. What’s in a chapter? Lite version</a></li>
 <li class="chapter" data-level="9.3" data-path="exercises.html"><a href="exercises.html#ex3"><i class="fa fa-check"></i><b>9.3</b> Exercise 3. What’s in a chapter? Heavy-duty version</a></li>
 <li class="chapter" data-level="9.4" data-path="exercises.html"><a href="exercises.html#ex4"><i class="fa fa-check"></i><b>9.4</b> Exercise 4. Render the book!</a></li>
@@ -181,6 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>10</b> Closing thoughts</a><ul>
 <li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#table-formatting"><i class="fa fa-check"></i>Table formatting</a></li>
 <li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#parameter-files-a-neater-nicer-way"><i class="fa fa-check"></i>Parameter files: A neater, nicer way?</a></li>
+<li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#collaboration-still-a-hurdle"><i class="fa fa-check"></i>Collaboration: still a hurdle</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>11</b> Other great resources</a></li>
 <li class="divider"></li>
@@ -218,10 +220,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="parameter-files-a-neater-nicer-way" class="section level3 unnumbered">
 <h3>Parameter files: A neater, nicer way?</h3>
-<p>In its current format, all your writing is in RMarkdown except when it comes to your pre-body text, which have to be done in the <code>doc_preface.tex</code>. This is not a huge concern, though eventually down the line it would be nice to somehow incorporate this text into RMarkdown documents as well for total continuity. Alas, today is not that day.</p>
-<p>Additionally, providing more than style specifications to Word documents is a tricky business, and one I do not have a firm grasp on. At the moment, the .docx template provided tells RMarkdown/bookdown how to <em>style</em> the document, but does <strong>not</strong> include the abstract.</p>
+<p>In its current format, all your writing is in R Markdown except when it comes to your pre-body text, which have to be done in the <code>doc_preface.tex</code>. This is not a huge concern, though eventually down the line it would be nice to somehow incorporate this text into R Markdown documents as well for total continuity. Alas, today is not that day.</p>
+<p>Additionally, providing more than style specifications to Word documents is a tricky business, and one I do not have a firm grasp on. At the moment, the .docx template provided tells R Markdown/bookdown how to <em>style</em> the document, but does <strong>not</strong> include the abstract.</p>
 <p>My rationalization for not worrying about this is that the .docx versions, for me, are intermediary; they are not the final product, and so fussing about the fine grained details is not a good use of time. However, it may be the case that someone down the line would prefer to use a .docx output every step of the way, right up until the final submission. In this case, more tweaking would need to be done.</p>
 <p>I have many more complaints about outputting to word (see Table gripes up above), but I think these limitations are not related to the fact that solutions don’t exist, but that I haven’t figured them out yet and have decided to stop worrying.</p>
+</div>
+<div id="collaboration-still-a-hurdle" class="section level3 unnumbered">
+<h3>Collaboration: still a hurdle</h3>
+<p>As mentioned in Section <a href="previews.html#previews">7</a>, collaborating with other people who rely on a very different system can still be a challenge. That being said, I think finding a happy medium, which at this point may still require some minor sacrifices from each party, is fully worth it. I know this is a hot topic for researchers everywhere, and have confidence that options will continue to expand as people keep contributing to package development. That’s one of the many lovely things about the #rstats open source community!</p>
 
 </div>
 </div>

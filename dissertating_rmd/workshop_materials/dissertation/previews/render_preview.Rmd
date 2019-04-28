@@ -1,10 +1,10 @@
 ---
-bibliography: references.bib
+bibliography: ../references.bib
 output:
   bookdown::word_document2:
     fig_caption: TRUE
     md_extensions: +footnotes
-    reference_docx: ../uwo_thesis_template.docx
+    reference_docx: ../parameters/uwo_thesis_template.docx
 always_allow_html: yes
 biblio-style: apalike
 ---
@@ -28,7 +28,7 @@ options(scipen = 999 )
 
 <!-- Experiment 2 -->
 
-```{r part2, child = '../03b_Results.Rmd'}
+```{r part2, child = '../3b_Results.Rmd'}
 ```
 
 <!-- Experiment 3 -->

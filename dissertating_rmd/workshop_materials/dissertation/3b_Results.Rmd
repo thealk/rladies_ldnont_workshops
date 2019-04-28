@@ -1,1 +1,13 @@
 ## Another results section
+
+```{r}
+source("../scripts/helper.R")
+```
+
+
+This is some text! I am going to call a value from `helper.R`. The mean of *cholesterol* level in Starbucks drinks is `r mean(starbucks$cholesterol)`
+
+```{r fig.cap = "Histogram of cholesterol"}
+hist(starbucks$cholesterol)
+```
+

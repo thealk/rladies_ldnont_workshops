@@ -14,11 +14,14 @@ Table formatting packages for .docx outputs:
 
 ### Parameter files: A neater, nicer way? {-}
 
-In its current format, all your writing is in RMarkdown except when it comes to your pre-body text, which have to be done in the `doc_preface.tex`. This is not a huge concern, though eventually down the line it would be nice to somehow incorporate this text into RMarkdown documents as well for total continuity. Alas, today is not that day.
+In its current format, all your writing is in R Markdown except when it comes to your pre-body text, which have to be done in the `doc_preface.tex`. This is not a huge concern, though eventually down the line it would be nice to somehow incorporate this text into R Markdown documents as well for total continuity. Alas, today is not that day.
 
-Additionally, providing more than style specifications to Word documents is a tricky business, and one I do not have a firm grasp on. At the moment, the .docx template provided tells RMarkdown/bookdown how to *style* the document, but does **not** include the abstract.
+Additionally, providing more than style specifications to Word documents is a tricky business, and one I do not have a firm grasp on. At the moment, the .docx template provided tells R Markdown/bookdown how to *style* the document, but does **not** include the abstract.
 
 My rationalization for not worrying about this is that the .docx versions, for me, are intermediary; they are not the final product, and so fussing about the fine grained details is not a good use of time. However, it may be the case that someone down the line would prefer to use a .docx output every step of the way, right up until the final submission. In this case, more tweaking would need to be done.
 
 I have many more complaints about outputting to word (see Table gripes up above), but I think these limitations are not related to the fact that solutions don't exist, but that I haven't figured them out yet and have decided to stop worrying.
+
+### Collaboration: still a hurdle {-}
+As mentioned in Section \@ref(previews), collaborating with other people who rely on a very different system can still be a challenge. That being said, I think finding a happy medium, which at this point may still require some minor sacrifices from each party, is fully worth it. I know this is a hot topic for researchers everywhere, and have confidence that options will continue to expand as people keep contributing to package development. That's one of the many lovely things about the #rstats open source community!
 

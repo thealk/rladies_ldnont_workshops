@@ -156,7 +156,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="previews.html"><a href="previews.html"><i class="fa fa-check"></i><b>7</b> Previews and collaborations</a></li>
 <li class="chapter" data-level="8" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html"><i class="fa fa-check"></i><b>8</b> Nitty gritty stuff</a><ul>
 <li class="chapter" data-level="8.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#reference-management"><i class="fa fa-check"></i><b>8.1</b> Reference management</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#citing-r-packages"><i class="fa fa-check"></i><b>8.1.1</b> Citing R packages</a></li>
 <li class="chapter" data-level="" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#more-resources-2"><i class="fa fa-check"></i>More resources</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#notes-to-self-within-text"><i class="fa fa-check"></i><b>8.2</b> Notes to self within text</a></li>
@@ -172,7 +171,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises</a><ul>
-<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a></li>
+<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a><ul>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html#options-to-try"><i class="fa fa-check"></i>Options to try</a></li>
+</ul></li>
 <li class="chapter" data-level="9.2" data-path="exercises.html"><a href="exercises.html#ex2"><i class="fa fa-check"></i><b>9.2</b> Exercise 2. What’s in a chapter? Lite version</a></li>
 <li class="chapter" data-level="9.3" data-path="exercises.html"><a href="exercises.html#ex3"><i class="fa fa-check"></i><b>9.3</b> Exercise 3. What’s in a chapter? Heavy-duty version</a></li>
 <li class="chapter" data-level="9.4" data-path="exercises.html"><a href="exercises.html#ex4"><i class="fa fa-check"></i><b>9.4</b> Exercise 4. Render the book!</a></li>
@@ -181,6 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>10</b> Closing thoughts</a><ul>
 <li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#table-formatting"><i class="fa fa-check"></i>Table formatting</a></li>
 <li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#parameter-files-a-neater-nicer-way"><i class="fa fa-check"></i>Parameter files: A neater, nicer way?</a></li>
+<li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#collaboration-still-a-hurdle"><i class="fa fa-check"></i>Collaboration: still a hurdle</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>11</b> Other great resources</a></li>
 <li class="divider"></li>
@@ -222,9 +224,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">5.1</span> The workhorses</h2>
 <p>The files that will do the heavy lifting in order for your dissertation to compile as a PDF are:</p>
 <ul>
-<li><code>index.Rmd</code> contains the YAML<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a></li>
-<li><code>params.tex</code></li>
+<li><code>index.Rmd</code> contains the YAML<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></li>
 <li><code>preamble.tex</code></li>
+<li><code>doc_preface.tex</code></li>
 </ul>
 <p><strong><code>index.Rmd</code></strong>
 <img src="images/index_yaml.png" /></p>
@@ -238,9 +240,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     includes:
       in_header: templates/preamble.tex
       before_body: templates/doc_preface.tex</code></pre>
-<p>Importantly, we are pointing to the two other workhorses necessary for the PDF output: the .tex files. Note that these are adapted from people who know a lot more about LaTeX than I do; I changed very little, and mostly just moved stuff around. In their current form, they will output a document that adheres to the current Western thesis standards<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
+<p>Importantly, we are pointing to the two other workhorses necessary for the PDF output: the .tex files. Note that these are adapted from people who know a lot more about LaTeX than I do; I changed very little, and mostly just moved stuff around. In their current form, they will output a document that adheres to the current Western thesis standards<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>.</p>
 <ul>
-<li>The <code>in_header</code> line tells bookdown to incorporate everything in <code>preamble.tex</code>. If you’re familiar with LaTex, this is everything that comes before <code>\begin{document}</code>. This also contains important info like your name, department, thesis title, etc…</li>
+<li>The <code>in_header</code> line tells bookdown to incorporate everything in <code>preamble.tex</code>. If you’re familiar with LaTeX, this is everything that comes before <code>\begin{document}</code>. This also contains important info like your name, department, thesis title, etc…</li>
 </ul>
 <p><strong>preamble.tex</strong></p>
 <p><img src="images/preamble.png" /></p>
@@ -256,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>bookdown::render_book(&quot;index.Rmd&quot;, &quot;bookdown::pdf_book&quot;)</code></pre>
 <p>Note that here we are specifying the <code>pdf_book</code> output format, but we don’t actually have to since it happens to be the first, and therefore default, output format specified in our YAML. We could just as successfully run <code>bookdown::render_book("index.Rmd")</code>.</p>
 <p>If all goes according to plan, you will see a smattering of new folders and files.
-Your shiny new book can be found in <code>_book/_main.pdf</code></p>
+Your shiny new book can be found in <code>docs/_main.pdf</code><a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
 <p>If things did <em>not</em> go according to plan, you will get an error and a request that you delete <code>_main.Rmd</code> before recompiling. <code>_main.Rmd</code> is a document that’s created in the process, but gets deleted when the final output has successfully compiled. It can often give you hints as to what went wrong (the lines where it got tripped up will be echoed in the error message). As instructed, you must delete it before you try to render again.</p>
 <p><strong>Other things to know</strong></p>
 <ul>
@@ -270,9 +272,10 @@ There is a way to <a href="https://bookdown.org/yihui/bookdown/some-tips.html">p
 </div>
 <div class="footnotes">
 <hr />
-<ol start="5">
-<li id="fn5"><p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> (rhymes with camel): The frontmatter/metadata that tells R Markdown how to generate your document. Indentation and spacing are <strong>very important</strong>. Stands for “YAML Ain’t Markup Language” or, less meta, “Yet Another Multicolumn Layout.”<a href="compiling-the-dissertation.html#fnref5" class="footnote-back">↩</a></p></li>
-<li id="fn6"><p>The <a href="https://github.com/ismayc/thesisdown"><code>thesisdown package readme</code></a> has a nice list of other templates that people have adapted for their universities if you’d like to compare other .tex input files.<a href="compiling-the-dissertation.html#fnref6" class="footnote-back">↩</a></p></li>
+<ol start="6">
+<li id="fn6"><p><a href="https://en.wikipedia.org/wiki/YAML">YAML</a> (rhymes with camel): The frontmatter/metadata that tells R Markdown how to generate your document. Indentation and spacing are <strong>very important</strong>. Stands for “YAML Ain’t Markup Language” or, less meta, “Yet Another Multicolumn Layout.”<a href="compiling-the-dissertation.html#fnref6" class="footnote-back">↩</a></p></li>
+<li id="fn7"><p>The <a href="https://github.com/ismayc/thesisdown"><code>thesisdown</code> package readme</a> has a nice list of other templates that people have adapted for their universities if you’d like to compare other .tex input files.<a href="compiling-the-dissertation.html#fnref7" class="footnote-back">↩</a></p></li>
+<li id="fn8"><p>Whether you output to “docs” or somewhere else, and what the “main” PDF wil be called can all be changed in <code>_bookdown.yaml</code> document. If you don’t include this document, the default folder is <code>_book</code> and the default name is <code>_main</code>.<a href="compiling-the-dissertation.html#fnref8" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>

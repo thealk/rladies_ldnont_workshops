@@ -156,7 +156,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="previews.html"><a href="previews.html"><i class="fa fa-check"></i><b>7</b> Previews and collaborations</a></li>
 <li class="chapter" data-level="8" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html"><i class="fa fa-check"></i><b>8</b> Nitty gritty stuff</a><ul>
 <li class="chapter" data-level="8.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#reference-management"><i class="fa fa-check"></i><b>8.1</b> Reference management</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#citing-r-packages"><i class="fa fa-check"></i><b>8.1.1</b> Citing R packages</a></li>
 <li class="chapter" data-level="" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#more-resources-2"><i class="fa fa-check"></i>More resources</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#notes-to-self-within-text"><i class="fa fa-check"></i><b>8.2</b> Notes to self within text</a></li>
@@ -172,7 +171,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises</a><ul>
-<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a></li>
+<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a><ul>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html#options-to-try"><i class="fa fa-check"></i>Options to try</a></li>
+</ul></li>
 <li class="chapter" data-level="9.2" data-path="exercises.html"><a href="exercises.html#ex2"><i class="fa fa-check"></i><b>9.2</b> Exercise 2. What’s in a chapter? Lite version</a></li>
 <li class="chapter" data-level="9.3" data-path="exercises.html"><a href="exercises.html#ex3"><i class="fa fa-check"></i><b>9.3</b> Exercise 3. What’s in a chapter? Heavy-duty version</a></li>
 <li class="chapter" data-level="9.4" data-path="exercises.html"><a href="exercises.html#ex4"><i class="fa fa-check"></i><b>9.4</b> Exercise 4. Render the book!</a></li>
@@ -181,6 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>10</b> Closing thoughts</a><ul>
 <li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#table-formatting"><i class="fa fa-check"></i>Table formatting</a></li>
 <li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#parameter-files-a-neater-nicer-way"><i class="fa fa-check"></i>Parameter files: A neater, nicer way?</a></li>
+<li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#collaboration-still-a-hurdle"><i class="fa fa-check"></i>Collaboration: still a hurdle</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>11</b> Other great resources</a></li>
 <li class="divider"></li>
@@ -223,7 +225,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>My process:</strong></p>
 <ul>
 <li>When I come across a new paper, I immediately add its info to my .bib file. I also immediately add important keywords or notes to the bib entry.</li>
-<li>I get the bibtex info using Google Scholar’s citation tools (specifically, the <a href="https://chrome.google.com/webstore/detail/google-scholar-button/ldipcbpaocekfooobnbcddclnhejkcpn?hl=en">GoogleScholar Chrome plugin</a>)</li>
+<li>I get the BibTeX info using Google Scholar’s citation tools (specifically, the <a href="https://chrome.google.com/webstore/detail/google-scholar-button/ldipcbpaocekfooobnbcddclnhejkcpn?hl=en">GoogleScholar Chrome plugin</a>)</li>
 <li>I also immediately make any quick edits I may need to the entry fields (e.g., words that need to be capitalized must be encased in <code>{}</code>; sometimes Google Scholar’s single quotes have given me grief, so I usually replace these… etc)</li>
 <li>I have a category called “read me!” that I dump all my new papers into to remind myself what I added recently and why.</li>
 </ul>
@@ -231,7 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4>Citation keys</h4>
 <p>When you cite references from your .bib file, you need to reference the <em>citation key</em>. In the following standard bib entry example, the citation key is the first argument (kalf2012). I try to be super consistent with my naming conventions (e.g., always in the form of firstAuthorYear, plus an additional keyword when necessary). This makes it easier to call to mind references from memory. To cite a source, preface it with <code>@</code>, and use square brackets <code>[]</code> to enclose it in parentheses, like this <code>[@kalf2012]</code>. Multiple sources can be separated by commas.</p>
 <pre><code>@article{kalf2012,
-  title={Prevalence of oropharyngeal dysphagia in Parkinson’s disease: a meta-analysis},
+  title={Prevalence of oropharyngeal dysphagia in {P}arkinson’s disease: a meta-analysis},
   author={Kalf, JG and De Swart, BJM and Bloem, BR and Munneke, Marten},
   journal={Parkinsonism \&amp; related disorders},
   volume={18},
@@ -241,11 +243,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   publisher={Elsevier}
 }</code></pre>
 <p>You can specify how you would like your bibliography and citations to be formatted by pointing to <code>.csl</code> style files or via the <code>biblio-style</code> argument as we have done in our YAML in this tutorial.</p>
+</div>
+<div id="citr" class="section level4 unnumbered">
+<h4>Citr</h4>
 <p>A very useful <strong>RStudio Add-in</strong> that allows you to cite your sources from a drop-down menu is <a href="https://github.com/crsh/citr">citr</a>.</p>
 <p>A list of references will be autogenerated at the end of your document in rmarkdown/bookdown.</p>
 </div>
-<div id="citing-r-packages" class="section level3">
-<h3><span class="header-section-number">8.1.1</span> Citing R packages</h3>
+<div id="citing-r-packages" class="section level4 unnumbered">
+<h4>Citing R packages</h4>
 <p>The <code>bookdown</code> manual details how to use the <a href="https://bookdown.org/yihui/bookdown/citations.html"><code>write_bib()</code></a> helper function to generate BibTeX entries automatically for R Packages.</p>
 </div>
 <div id="more-resources-2" class="section level3 unnumbered">
@@ -285,8 +290,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Option 1. Store them in an .R file (e.g., <code>my_functions.R</code>) and <em>source</em> this file as needed.</li>
 <li>Option 2. <a href="https://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/">Create an R package</a> (not as hard as it sounds!) and load it along with your other packages.
 <ul>
-<li><a href="https://github.com/tjmahr/tjmisc">TJ Mahr has a nice example</a></li>
-<li><a href="https://github.com/jvcasillas/academicWriteR">academicWriteR is also a good example package</a></li>
+<li>TJ Mahr has a <a href="https://github.com/tjmahr/tjmisc">nice example</a> of a “misc” package for this purpose.</li>
+<li><a href="https://github.com/jvcasillas/academicWriteR">academicWriteR</a> is also a great resource for the kinds of functions you may want to use.</li>
 </ul></li>
 </ul>
 </div>
@@ -294,7 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="autogenerating-tablefigure-numbers" class="section level2">
 <h2><span class="header-section-number">8.5</span> Autogenerating table/figure numbers</h2>
 <p>As long as you follow the instructions in this tutorial, your tables (via <code>kable</code>) will be autonumbered and will show up in your List of Tables defined in <code>doc_preface.tex</code>. Your figures (via the caption option in the R chunk) will also be autonumbered and will show up in your List of Figures.</p>
-<p><strong>Caveat</strong>: I have tried to figure out happier ways to make tables in RMarkdown work for me across Word/PDF outputs and I have not found one single solution I’m 100% happy with. Some rambling thoughts (see also Section <a href="limitations.html#limitations">10</a>):</p>
+<p><strong>Caveat</strong>: I have tried to figure out happier ways to make tables in R Markdown work for me across Word/PDF outputs and I have not found one single solution I’m 100% happy with. Some rambling thoughts (see also Section <a href="limitations.html#limitations">10</a>):</p>
 <ul>
 <li><code>kable</code> is necessary to be automatically added to your List of Tables, but it has fewer output options for .docx.</li>
 <li><code>flextable</code> is a great package if you are only outputting to Word or HTML, but not to PDF</li>
@@ -305,7 +310,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="version-control" class="section level2">
 <h2><span class="header-section-number">8.6</span> Version control</h2>
-<p><a href="https://guides.github.com/activities/hello-world/">Git</a> is Great. I personally found the language surrounding Git and Github to be a steep learning curve, but Jenny Bryan recently published <a href="https://happygitwithr.com/">Happy Git with R</a> that makes the whole process a lot more accessible.</p>
+<p><a href="https://guides.github.com/activities/hello-world/">Git</a> is Great. I personally found the language surrounding Git and GitHub to be a steep learning curve, but Jenny Bryan recently published <a href="https://happygitwithr.com/">Happy Git with R</a> that makes the whole process a lot more accessible.</p>
 <p>I also use <a href="https://desktop.github.com/">GitHub Desktop</a> because I was becoming frustrated at my continued forgetting of command line syntax for using git and not lighting everything on fire.</p>
 <div id="other-resources" class="section level3 unnumbered">
 <h3>Other resources</h3>
@@ -314,10 +319,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Pauline Barmby curated some resources for her R-Ladies #LdnOnt presentation on Git and GitHub:
 <ul>
 <li><a href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">Tutorial 1: HubSpot Intro</a></li>
-<li><a href="http://swcarpentry.github.io/git-novice/">Tutorial 2: Software Carprentry Intro</a></li>
+<li><a href="http://swcarpentry.github.io/git-novice/">Tutorial 2: Software Carpentry Intro</a></li>
 <li><a href="https://www.atlassian.com/git/tutorials">Tutorial 3: Atlassian Tutorial</a></li>
 </ul></li>
-<li><a href="https://guides.github.com/activities/hello-world/">GithHub Guide</a></li>
+<li><a href="https://guides.github.com/activities/hello-world/">GitHub Guide</a></li>
 </ul>
 
 </div>

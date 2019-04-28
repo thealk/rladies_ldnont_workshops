@@ -156,7 +156,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7" data-path="previews.html"><a href="previews.html"><i class="fa fa-check"></i><b>7</b> Previews and collaborations</a></li>
 <li class="chapter" data-level="8" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html"><i class="fa fa-check"></i><b>8</b> Nitty gritty stuff</a><ul>
 <li class="chapter" data-level="8.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#reference-management"><i class="fa fa-check"></i><b>8.1</b> Reference management</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#citing-r-packages"><i class="fa fa-check"></i><b>8.1.1</b> Citing R packages</a></li>
 <li class="chapter" data-level="" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#more-resources-2"><i class="fa fa-check"></i>More resources</a></li>
 </ul></li>
 <li class="chapter" data-level="8.2" data-path="nitty-gritty-stuff.html"><a href="nitty-gritty-stuff.html#notes-to-self-within-text"><i class="fa fa-check"></i><b>8.2</b> Notes to self within text</a></li>
@@ -172,7 +171,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>9</b> Exercises</a><ul>
-<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a></li>
+<li class="chapter" data-level="9.1" data-path="exercises.html"><a href="exercises.html#ex1"><i class="fa fa-check"></i><b>9.1</b> Exercise 1. Getting started with RMarkdown</a><ul>
+<li class="chapter" data-level="" data-path="exercises.html"><a href="exercises.html#options-to-try"><i class="fa fa-check"></i>Options to try</a></li>
+</ul></li>
 <li class="chapter" data-level="9.2" data-path="exercises.html"><a href="exercises.html#ex2"><i class="fa fa-check"></i><b>9.2</b> Exercise 2. What’s in a chapter? Lite version</a></li>
 <li class="chapter" data-level="9.3" data-path="exercises.html"><a href="exercises.html#ex3"><i class="fa fa-check"></i><b>9.3</b> Exercise 3. What’s in a chapter? Heavy-duty version</a></li>
 <li class="chapter" data-level="9.4" data-path="exercises.html"><a href="exercises.html#ex4"><i class="fa fa-check"></i><b>9.4</b> Exercise 4. Render the book!</a></li>
@@ -181,6 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10" data-path="limitations.html"><a href="limitations.html"><i class="fa fa-check"></i><b>10</b> Closing thoughts</a><ul>
 <li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#table-formatting"><i class="fa fa-check"></i>Table formatting</a></li>
 <li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#parameter-files-a-neater-nicer-way"><i class="fa fa-check"></i>Parameter files: A neater, nicer way?</a></li>
+<li class="chapter" data-level="" data-path="limitations.html"><a href="limitations.html#collaboration-still-a-hurdle"><i class="fa fa-check"></i>Collaboration: still a hurdle</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="resources.html"><a href="resources.html"><i class="fa fa-check"></i><b>11</b> Other great resources</a></li>
 <li class="divider"></li>
@@ -226,17 +228,23 @@ Open that .RProj file whenver you’re ready to work on that project, and it wil
 <p><img src="images/rmarkdown_parts.png" /></p>
 <p>We won’t go into this in <em>too</em> much detail</p>
 <p><strong>Knit your document</strong></p>
-<p><img src="images/knit.png" />
-### Options to try
-- Make a list
-- Add some first and second level headers
-- Add some <strong>bold</strong> text and <em>italic</em> text
-- Add some R code in an R chunk
-- <strong>Try knitting it as a….</strong>
-- Word document
-- Html document
-- PDF document</p>
+<p><img src="images/knit.png" /></p>
+<div id="options-to-try" class="section level3 unnumbered">
+<h3>Options to try</h3>
+<ul>
+<li>Make a list</li>
+<li>Add some first and second level headers</li>
+<li>Add some <strong>bold</strong> text and <em>italic</em> text</li>
+<li>Add some R code in an R chunk</li>
+<li><strong>Try knitting it as a….</strong>
+<ul>
+<li>Word document</li>
+<li>Html document</li>
+<li>PDF document</li>
+</ul></li>
+</ul>
 <p>Back to Section <a href="crashcourse.html#crashcourse">2</a></p>
+</div>
 </div>
 <div id="ex2" class="section level2">
 <h2><span class="header-section-number">9.2</span> Exercise 2. What’s in a chapter? Lite version</h2>
@@ -291,7 +299,7 @@ bookdown::render_book(&quot;index.Rmd&quot;, &quot;bookdown::gitbook&quot;)</cod
 <li>having two R chunks with the same name (e.g., I often have a chunk named <code>setup</code> at the beginnings of some of my .Rmd documents. I have taken to calling these <code>setup-intro</code>, <code>setup-method</code> etc. when I need to have them but don’t want them to cause errors.)</li>
 <li>running into an error somewhere in the R script (did I try to call a variable that didn’t exist? Forget to load a package? How many ways are there to err in R, oh let me count the ways…)</li>
 </ul>
-<p><em>Solving errors</em> is really a case-by-case quest. I try to first see what hints are in the error message (is it an .Rmd issue? A Latex issue? An R issue?) and usually resort to googling the error<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>.</p>
+<p><em>Solving errors</em> is really a case-by-case quest. I try to first see what hints are in the error message (is it an .Rmd issue? A Latex issue? An R issue?) and usually resort to googling the error<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
 <p><strong>More resources:</strong>
 - <a href="https://bookdown.org/yihui/bookdown/get-started.html">Getting started with bookdown</a></p>
 </div>
@@ -317,8 +325,8 @@ bookdown::render_book(&quot;index.Rmd&quot;, &quot;bookdown::gitbook&quot;)</cod
 </div>
 <div class="footnotes">
 <hr />
-<ol start="7">
-<li id="fn7"><p>Joy be it that “Googling the error message” is now an <a href="https://github.com/coatless/searcher">R package</a>.<a href="exercises.html#fnref7" class="footnote-back">↩</a></p></li>
+<ol start="9">
+<li id="fn9"><p>Joy be it that “Googling the error message” is now an <a href="https://github.com/coatless/searcher">R package</a>.<a href="exercises.html#fnref9" class="footnote-back">↩</a></p></li>
 </ol>
 </div>
             </section>
