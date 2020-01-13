@@ -1,0 +1,14 @@
+[
+["index.html", "Bookdown 1 Turning it all into a book", " Bookdown 1 Turning it all into a book Last updated: 11 January, 2020 "],
+["introduction.html", "2 Introduction", " 2 Introduction Here is an introduction. This paper explores the relationship between height and weight of Starwars characters. When Starwars was released as a book (Lucas and Powell 1977), the films were already in production. Here are some more citations from our bibliography (Brodeur et al. 2016; Means and Voss 1985). Bundy et al. (1984) demonstrated the use of an inline citation here. "],
+["methods.html", "3 Methods 3.1 Insert Markdown tables 3.2 Insert a figure 3.3 Insert equations 3.4 Insert footnotes.", " 3 Methods Here is the methods section. Refer to this section in the manuscript.Rmd file to see how we: Input a table that does not use R code Insert a figure that does not use R code Insert an equation Insert a footnote 3.1 Insert Markdown tables The following table similarly demonstrates absolutely nothing useful except how to generate a simple table in RMarkdown. Here are some ways of inserting Markdown tables: By hand using standard Markdown syntax Using a Tables Generator website Using the remedy RStudio addin Year Movie Rotten Tomatoes Score 2019 The Rise of Skywalker 53 2016 Rogue One 83 2002 Episode II: Attack of the Clones 65 3.2 Insert a figure 3.3 Insert equations Here is a nifty equation that shows absolutely nothing except how to include an equation: George Lucas’ income = \\(\\frac{N\\ times\\ people\\ have said\\ May\\ the\\ Force\\ Be\\ With\\ You}{Carrie\\ Fisher}* \\$ 1\\ bazillion\\). 3.4 Insert footnotes. Because we specified footnotes in the markdown extensions in our YAML1, we can now include them in the text. This is the footnote.↩ "],
+["results.html", "4 Results", " 4 Results This is where the results will go in a moment. For now, notice the chunk is commented out. I have written the results section separately to keep things nice and tidy, and this is where I will call it as “child” input. It is important that R chunks (identifiable as sandwiched between three back ticks ```) in the child file don’t have the same names as chunks in the main file. "],
+["discussion.html", "5 Discussion", " 5 Discussion Discuss. "],
+["limitations.html", "6 Limitations", " 6 Limitations Beat reviewer #2 to the punch! "],
+["references.html", "7 References", " 7 References "],
+["intro.html", "8 Intro", " 8 Intro Some text. "],
+["methods-1.html", "9 Methods", " 9 Methods Some text. "],
+["study-1.html", "10 Study 1", " 10 Study 1 "],
+["study-2.html", "11 Study 2", " 11 Study 2 "],
+["discussion-1.html", "12 Discussion", " 12 Discussion "]
+]

@@ -1,0 +1,113 @@
+---
+title: "Manuscript"
+subtitle: "Generated using RMarkdown"
+author:
+- Thea Knowles^1^, Thea Knowles' Alter Ego^2^
+- ^1^University at Buffalo, ^2^Western University
+date: "Last updated: `r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    toc: yes
+  word_document:
+    fig_caption: yes
+    md_extensions: +footnotes
+    reference_docx: custom_reference.docx
+    toc: yes
+  bookdown::word_document2:
+    fig_caption: yes
+    md_extensions: +footnotes
+    reference_docx: custom_reference.docx
+    toc: yes
+include.latex: TRUE
+csl: apa.csl
+bibliography: starwars_refs.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Load required packages
+library(knitr)
+library(rmarkdown)
+library(ggplot2)
+library(captioner)
+
+# Preparing to make figure and table captions using the captioner package
+figs <- captioner(prefix="Figure")
+tbls <- captioner(prefix="Table")
+```
+
+
+<!-- This is a comment in RMarkdown main body text. Note how it differs from comments in R code (#). -->
+
+# Introduction
+Here is an introduction. 
+This paper explores the relationship between height and weight of Starwars characters.
+
+When Starwars was released as a book [@lucas1977], the films were already in production.
+Here are some more citations from our bibliography [@brodeur2016; @means1985]. 
+@bundy1984 demonstrated the use of an inline citation here.
+
+
+# Methods {#methods}
+Here is the methods section. Refer to this section in the manuscript.Rmd file to see how we:
+
+1. Input a table that does not use R code
+2. Insert a figure that does not use R code
+3. Insert an equation
+4. Insert a footnote
+
+## Insert Markdown tables
+The following table similarly demonstrates absolutely nothing useful except how to generate a simple table in RMarkdown.
+
+Here are some ways of inserting Markdown tables:
+
+1. By hand using standard Markdown syntax
+2. Using a [Tables Generator website](https://www.tablesgenerator.com/markdown_tables)
+3. Using the [`remedy` RStudio addin](https://github.com/ThinkR-open/remedy)
+
+|  Year|  Movie|  Rotten Tomatoes Score|
+|--:|--:|--:|
+|  2019|  The Rise of Skywalker|  53|
+|  2016|  Rogue One|  83|
+|  2002|  Episode II: Attack of the Clones|  65|
+
+
+## Insert a figure
+
+
+![](images/starwars.png)
+
+
+## Insert equations
+Here is a nifty equation that shows absolutely nothing except how to include an equation: 
+
+<!-- COMMENTS! -->
+<!-- The text enclosed in dollar signs $ $ will be treated as LaTex math (an equation), and will be formatted especially for this -->
+
+George Lucas' income = $\frac{N\ times\ people\ have said\ May\ the\ Force\ Be\ With\ You}{Carrie\ Fisher}* \$ 1\ bazillion$. 
+
+## Insert footnotes.
+Because we specified footnotes in the markdown extensions in our YAML[^1], we can now include them in the text.
+
+[^1]: This is the footnote.
+
+# Results
+
+This is where the results will go in a moment. For now, notice the chunk is commented out.
+
+I have written the results section separately to keep things nice and tidy, and this is where I will call it as "child" input. 
+It is important that R chunks (identifiable as sandwiched between three back ticks \`\`\`) in the child file don't have the same names as chunks in the main file.
+
+<!-- ```{r child = 'results.Rmd'} -->
+
+<!-- ``` -->
+
+# Discussion
+Discuss. 
+
+# Limitations
+Beat reviewer \#2 to the punch!
+
+# References
+

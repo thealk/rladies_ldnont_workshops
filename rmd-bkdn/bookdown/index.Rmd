@@ -1,0 +1,24 @@
+--- 
+title: "Bookdown"
+bibliography: ../starwars_refs.bib
+output: bookdown::gitbook
+documentclass: book
+fontsize: 12pt
+subparagraph: yes
+link-citations: no
+biblio-style: apalike
+always_allow_html: yes
+---
+```{r setup-index, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+options(digits = 3)
+```
+
+# Turning it all into a book
+
+Last updated: `r format(Sys.time(), '%d %B, %Y')`
+
+
+```{r child = '../manuscript1.Rmd'}
+
+```
