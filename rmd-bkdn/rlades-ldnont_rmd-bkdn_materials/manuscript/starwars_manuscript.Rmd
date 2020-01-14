@@ -1,0 +1,197 @@
+---
+title: "Manuscript"
+subtitle: "Generated using RMarkdown"
+author:
+- Thea Knowles^1^, Thea Knowles' Alter Ego^2^
+- ^1^University at Buffalo, ^2^Western University
+date: "Last updated: `r format(Sys.time(), '%d %B, %Y')`"
+output:
+  bookdown::word_document2:
+    fig_caption: yes
+    md_extensions: +footnotes
+    reference_docx: ../custom_reference.docx
+    toc: yes
+  bookdown::html_document2:
+    toc: yes
+    number_sections: no
+include.latex: TRUE
+csl: ../apa.csl
+bibliography: ../starwars_refs.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+# Load required packages
+library(tidyverse)
+library(captioner) # You may have to download this
+
+# Preparing to make figure and table captions using the captioner package
+figs <- captioner(prefix="Figure")
+tbls <- captioner(prefix="Table")
+
+# Source helper
+source("../helper.R")
+```
+
+
+<!-- This is a comment in RMarkdown main body text. Note how it differs from comments in R code (#). -->
+
+# Introduction
+Here is an introduction. 
+This paper explores the relationship between height and weight of Starwars characters.
+
+When Starwars was released as a book [@lucas1977], the films were already in production.
+Here are some more citations from our bibliography [@brodeur2016; @means1985]. 
+@bundy1984 demonstrated the use of an inline citation here.
+
+
+# Methods {#methods}
+Here is the methods section. Refer to this section in the manuscript.Rmd file to see how we:
+
+1. Input a table that does not use R code
+2. Insert a figure that does not use R code
+3. Insert an equation
+4. Insert a footnote
+
+## Insert Markdown tables
+The following table similarly demonstrates absolutely nothing useful except how to generate a simple table in RMarkdown.
+
+Here are some ways of inserting Markdown tables:
+
+1. By hand using standard Markdown syntax
+2. Using a [Tables Generator website](https://www.tablesgenerator.com/markdown_tables)
+3. Using the [`remedy` RStudio addin](https://github.com/ThinkR-open/remedy)
+
+|  Year|  Movie|  Rotten Tomatoes Score|
+|--:|--:|--:|
+|  2019|  The Rise of Skywalker|  53|
+|  2016|  Rogue One|  83|
+|  2002|  Episode II: Attack of the Clones|  65|
+
+
+## Insert a figure
+
+```{r sw-logo, fig.cap = "Starwars logo", echo=FALSE}
+knitr::include_graphics("../images/starwars.png")
+```
+
+<!-- ![](../images/starwars.png) -->
+
+
+## Insert equations
+Here is a nifty equation that shows absolutely nothing except how to include an equation: 
+
+<!-- COMMENTS! -->
+<!-- The text enclosed in dollar signs $ $ will be treated as LaTex math (an equation), and will be formatted especially for this -->
+
+George Lucas' income = $\frac{N\ times\ people\ have said\ May\ the\ Force\ Be\ With\ You}{Carrie\ Fisher}* \$ 1\ bazillion$. 
+
+## Insert footnotes.
+Because we specified footnotes in the markdown extensions in our YAML[^1], we can now include them in the text.
+
+[^1]: This is the footnote.
+
+# Results
+
+This is where most of our R code will be, relying heavily on the contents of `helper.R.`
+You can embed figures and tables directly in this section, or you can save them to another location. Every journal has slightly different requirements, so you may have to tweak your workflow depending on where you're submitting.
+
+## Inserting a figure in R
+
+We can embed figures just like we did in the summary document by using R code chunks. We can also include extra information to include captions and to be able to cross reference them. 
+
+```{r fig-sw, fig.cap = "Mass by Height for all species", echo = FALSE, fig.align='center'}
+sw_plot
+```
+
+We can also just redo the plot
+```{r fig-sw2, echo=FALSE, message=FALSE, warning=FALSE}
+starwars %>% 
+        ggplot(aes(x=height,y=mass)) + 
+        geom_point(aes(color=species,
+                       size=height)) +
+        geom_smooth(method="lm") +
+        labs(x = "Height (cm)",
+             y = "Mass (kg)")+
+  guides(color=FALSE)+
+  theme_bw()
+```
+
+## Cross referencing figures and tables
+
+You can cross-reference figures and tables. This is a bit more complicated, but the benefit is that you don't have to remember which figure/table was in which position (especially helpful if you are adding/removing figs/tables during editing phase). You simply refer to the figure by its chunk label. 
+
+See Figures \@ref(fig:fig-sw) and \@ref(fig:fig-sw2) above.
+Figure \@ref(fig:fig-sw-human) is shown below. 
+
+```{r fig-sw-human, echo=FALSE, fig.cap="Mass by Height for humans vs. non-humans", fig.height=12, fig.width=10}
+sw_plot_human
+```
+
+
+See Table \@ref(tab:tab-sw-human).
+
+```{r tab-sw-human, results='asis', echo = FALSE}
+sw_summary_human %>% knitr::kable( 
+             booktabs=T, 
+             caption="Average height and mass for humans vs. non-humans")
+```
+
+**Caution**: Notice cross-referencing tables worked for the `knitr::kable()` option, but out markdown table above did not get automatically numbered. If you want to include both R and non-R tables, I'd suggest either 1) converting markdown tables to R code or 2) using the `flextable` package to generate captions and cross-references.
+
+### Using inline R code to refer to values in tables
+Here I will include a little extra embedded R code to clean up our model results, but I won't include this code to be shown. In the next paragraph, I'll refer directly to the contents of my model output using in-line R code. For this, we don't use embedded chunks, but rather the syntax  \`\ r someCodeHere \`. See the next paragraph in the results.Rmd file for an example.
+
+
+```{r, echo = FALSE, message = FALSE}
+
+mod2_summary <- summary(mod2)
+mod2_coefs <- mod2_summary$coefficients %>% 
+  as.data.frame()
+# You can refer to the contents of mod2_coefficients by referencing the index of the cell you want to use. This is in the form mod2_coefs["row", "column"]. See the paragraph below.
+
+# Specify which column to grab for the p-vals 
+# (syntax = [row,column]; if row is empty, it means just take the column)
+
+# beta estimates
+mod2_b <- mod2_coefs %>% select(1) %>% round(3)
+# t-vals
+mod2_t <- mod2_coefs %>% select(3) %>% round(3)
+# p-vals, including renaming the column and including a conditional to report very small p-vals as "<0.001" instead of 0. You could also turn this into a function.
+mod2_p <- mod2_coefs %>% 
+  rownames_to_column('var') %>%
+  select(p = "Pr(>|t|)", var) %>% 
+  mutate(p = ifelse(p <0.001, "<0.001", as.character(round(p,3)))) %>%
+  column_to_rownames('var')
+
+```
+
+With Jabba the Hut removed, there was a significant main effect of height on mass 
+($\hat\beta$ = `r mod2_b["height",1]`,
+$t$ = `r mod2_t["height",1]`,
+$p$ = `r mod2_p["height",1]`).
+
+
+
+<!-- Note: the inline R code to include the model coefficients is a little wordy. While it comes out cleanly in the output, when you're working in the .Rmd file, you can separate the code on separate lines. These won't appear as line breaks in the output; for that, you would have to enter a blank line in between. -->
+
+
+### Printing a table
+Here I will reference \@ref(tab:mod2-coefs) 
+
+```{r mod2-coefs, echo=FALSE}
+mod2_coefs %>% as.data.frame() %>% 
+  rownames_to_column("Var") %>% 
+  knitr::kable(caption = "This is the caption for my model coefficients table.") 
+```
+
+
+# Discussion
+Discuss. 
+
+# Limitations
+Beat reviewer \#2 to the punch!
+
+# References
+
