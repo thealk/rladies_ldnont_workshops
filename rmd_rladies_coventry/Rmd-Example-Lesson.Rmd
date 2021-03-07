@@ -1,0 +1,68 @@
+---
+title: "Intro to R with R Markdown"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+# This defines the behavior of your code chunks in your R Markdown document.
+#   echo: do you want the code that you ran to print in the output?
+#   eval: do you want the code to be evaluated (i.e., treated like real code)?
+#       - Here we set it to false because this document is just an example and I don't care whether the code actually runs. For a summary document we'd want to set it to true (or just leave it off; its default is TRUE). 
+#       - We can also set the value to be TRUE for individual chunks.
+knitr::opts_chunk$set(echo = TRUE, eval=FALSE)
+```
+
+# Overview
+## Goals
+
+# Intro to R
+## R packages and libraries
+**Packages** are bundles of code written to do (typically) specific sets of functions
+
+- Some packages are automatically downloaded and loaded into your workspace when you install R
+- Others you have to explicitly download
+- Many packages are hosted on CRAN - this is the official "home" of peer-approved packages
+  - These can be installed using the function `install.packages()`.
+
+```{r}
+install.packages("tidyverse")
+```
+
+## Basic R uses
+
+- Use as calculator
+```{r}
+3 + 2
+10^4
+4*100
+```
+
+- Create variables and store information in them
+```{r}
+x <- 5
+```
+
+- Print information to console
+
+```{r eval=TRUE}
+# Notice I set eval = TRUE in this chunk because I want x <- 5 to get evaluated so that it will accurately print the output!
+
+print("Hello!")
+print(3*5)
+
+x <- 5 
+x # this prints the value of x!
+```
+
+## Variables in R
+
+- Numeric variables contain and are treated as numbers
+- String variables are treated as strings of text (also known as character variables)
+- Variables don't just hold numbers and text - they can hold sets of numbers/text, lists of various kinds of information, and whole data sets!
+
+### Naming variables
+- Be descriptive
+- Be consistent in your content
+- Be consistent in your case (camelCase/snake_case/etc)
+
+

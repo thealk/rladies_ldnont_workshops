@@ -1,0 +1,49 @@
+---
+title: "Coding for Speech: R and R Markdown"
+author: "Thea"
+date: "10/03/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Markdown syntax examples
+### Text
+
+*italic*
+**bold**
+
+***italic and bold!***
+
+----
+
+# First level header
+## Second level header
+## Third level header
+
+1. the first item on a numbered list
+2. the second item on a numbered list
+
+- the first item on a bulleted list
+- the second item on a bulleted list
+  - item 2a
+
+### Tables
+
+|  a|  b|  c|
+|--:|--:|--:|
+|  1|  2|  3|
+|  2|  3|  4|
+
+## Code chunks
+```{r}
+x <- 5
+x
+```
+
+## Inline code
+
+The value of x is `r x`.
+

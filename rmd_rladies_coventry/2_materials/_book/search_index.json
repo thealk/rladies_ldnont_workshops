@@ -1,0 +1,3 @@
+[
+["first-level-header.html", "Coding for Speech: R and R Markdown 1 First level header 1.1 Second level header 1.2 Third level header 1.3 Code chunks 1.4 Inline code", " Coding for Speech: R and R Markdown Thea 10/03/2020 1 First level header 1.1 Second level header 1.2 Third level header the first item on a numbered list the second item on a numbered list the first item on a bulleted list the second item on a bulleted list item 2a 1.2.1 Tables a b c 1 2 3 2 3 4 1.3 Code chunks x &lt;- 5 x ## [1] 5 1.4 Inline code The value of x is 5. "]
+]
