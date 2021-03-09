@@ -37,6 +37,7 @@ Learn how to use R Markdown to combine writing and code
 
 > `r emo::ji("memo")` [ Create & edit helper.R file to feed to your .Rmd ]{style="color:red"}
 
+
 ##  {.unnumbered}
 
 <center>
@@ -118,12 +119,11 @@ Learn how to use R Markdown to combine writing and code
 
 </center>
 
-## R Markdown
+## R Markdown | We're going to make this today!
 
-#### We're going to make this today!
-
-<br> <img src="../img/rmarkdown_example.png" width="800/"/>
-
+<center>
+<img src="../img/rmarkdown_projects/todays_output.png" width=600 />
+</center>
 
 # Part 1 | The basics
 
@@ -232,6 +232,8 @@ csl: "csl_files/apa7.csl"
 -   [HTML output](https://rmarkdown.rstudio.com/html_document_format.html)
 -   [Word output](https://rmarkdown.rstudio.com/word_document_format.html)
 -   [PDF output](https://rmarkdown.rstudio.com/pdf_document_format.html)
+
+*Note: We will just learn about HTML output today*
 :::
 
 ## Essential parts of any R Markdown document
@@ -376,7 +378,7 @@ Tables written like this:
 ## `r emo::ji("memo")` <span style="color:red"> Exercise 3 </span> | Customize
 In the Rmarkdown document you created from the default template...
 
-<font size = 5>
+<font size = 4>
 
 1. Delete everything after Line 12 (after the setup code chunk)
 2. Add a new header
@@ -458,7 +460,7 @@ and the max VOT is
 max(vot$VOT)` ``.
 
 
-## `r emo::ji("memo")` <span style="color:red"> Exercise 7 </span> | KAdd a plot
+## `r emo::ji("memo")` <span style="color:red"> Exercise 7 </span> | Add a plot
 
 Add another code chunk:
 
@@ -467,3 +469,63 @@ Add another code chunk:
     hist(vot$VOT)
 `r ''````
 ````
+
+## Exponentially useful
+The ability to refer to your code in your document becomes EXTREMELY helpful once you start creating multiple figures, reporting summary variables and tables of statistics
+
+<br>
+<center>
+`r emo::ji("world_map")` *Tour of some of the ways I use RMarkdown*
+
+<font size = 4>
+
+- Manuscripts
+- Dissertation
+- Presentations like this one that needs to show/demonstrate code
+- Summary documents to supervisor/colleagues/stats consults
+- "Trapper-keeper" for large projects
+- My websites
+
+</font>
+
+</center>
+
+## Manuscript draft
+
+<img src="../img/rmarkdown_projects/article_draft.png" width=800/>
+
+## Dissertation record keeping
+
+<img src="../img/rmarkdown_projects/dissertation_trapperkeeper.png" width=800/>
+
+##  {.unnumbered}
+
+<center>
+
+<img src="../img/horst_how_much_i_know_tweet.png" width="500/"/>
+
+</center>
+
+## Build your skills gradually
+Build your skill set to tailor to your goals: Some guiding suggestions based on my own experience
+
+  - Start with using R Markdown to tell the story of your data to you, to your supervisor (summary reports)
+  - If dissertating - start early! Use RMarkdown as a way to keep track of your data. Compile frequently and read up on project management
+  - Write an article in RMarkdown & learn how to use templates, reference management integration, and .RData files
+  - Present your data using RMarkdown
+    - This presentation uses the `ioslides_presentation` output, but [`xaringan`](https://bookdown.org/yihui/rmarkdown/xaringan.html) is an extremely powerful & popular tool for RMarkdown presentations
+    
+## R Studio Visual R Markdown `r emo::ji("fire")`
+- RStudio v1.4 released a mode to edit markdown more easily - the result is a word processor-style experience
+- I still recommend getting the basics down first, but this is an exciting development
+
+[Read more about Visual R Markdown Editing Mode here](https://rstudio.github.io/visual-markdown-editing/#/)
+
+# More resources
+
+## More resources
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+- [R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/)
+- [R-Ladies #LdnOnt guide to dissertating with R Markdown and bookdown](https://bookdown.org/thea_knowles/dissertating_rmd_presentation/)
+- [Page Piccinini's R for Publication Lessons](https://datascienceplus.com/r-for-publication-by-page-piccinini-lesson-1-r-basics/)
+- [A curated/quasirandom list of other very helpful resources](https://www.one-tab.com/page/d00HO6mxTTuqo2o7aGCffQ)

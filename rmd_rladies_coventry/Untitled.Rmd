@@ -1,0 +1,46 @@
+---
+title: "Summary of Simulated VOT"
+author: "Thea"
+date: '2021-03-09'
+output:
+  bookdown::html_document2: default
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r source-data, include=FALSE}
+source("helper_answers.R")
+```
+
+# Take a peek at the data {-}
+```{r}
+head(vot)
+```
+
+```{r}
+summary(vot)
+```
+
+
+## Overview {-}
+
+There are `r nrow(vot)` observations in the data set and `r length(unique(vot$Participant))` unique participants.
+
+The mean VOT is `r mean(vot$VOT)` (range: `r min(vot$VOT)` - `r max(vot$VOT)`).
+
+See Figure \@ref(fig:plot-vot) for the distribution of VOT values across the data set.
+
+# Data visualization {-}
+
+```{r plot-vot, fig.cap="Distribution of VOT", message = FALSE, echo = FALSE}
+vot %>%
+  ggplot(aes(x = VOT)) +
+  geom_histogram()+
+  ggtitle("Distribution of VOT")
+```
+
