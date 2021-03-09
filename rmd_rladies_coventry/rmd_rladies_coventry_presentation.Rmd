@@ -373,6 +373,41 @@ Tables written like this:
 
     -   *See `kable` and `flextable` R packages*
 
+## Inline R code
+You can refer to variables stored in R in your code using the syntax:
+  `` `r
+      [r code here!]` ``
+      
+### Example:
+Earlier in your code you have assigned `x <- 5` in an R chunk
+
+```{r}
+x <- 5
+```
+
+Typing 
+
+<span style="color:red">
+<center>
+The value of x is
+      `` `r
+      x` `` 
+
+</span>
+</center>
+
+<span style="color:grey">
+will print
+</span>
+
+
+<span style="color:red">
+<center>
+The value of x is `r x`
+</center>
+</span>
+
+
 
 
 ## `r emo::ji("memo")` <span style="color:red"> Exercise 3 </span> | Customize
@@ -529,3 +564,14 @@ Build your skill set to tailor to your goals: Some guiding suggestions based on 
 - [R-Ladies #LdnOnt guide to dissertating with R Markdown and bookdown](https://bookdown.org/thea_knowles/dissertating_rmd_presentation/)
 - [Page Piccinini's R for Publication Lessons](https://datascienceplus.com/r-for-publication-by-page-piccinini-lesson-1-r-basics/)
 - [A curated/quasirandom list of other very helpful resources](https://www.one-tab.com/page/d00HO6mxTTuqo2o7aGCffQ)
+
+## And even more resources
+here are some of the additional "extras" we talked about
+
+- [More on snippets](https://bookdown.org/thea_knowles/dissertating_rmd_presentation/nitty-gritty-stuff.html#snippets): Autocomplete text shortcuts for common strings of text.
+- [RData vs. RDS](https://rstudio-education.github.io/hopr/dataio.html): Load in your environment or specific R objects for faster rendering
+- [tjmisc::ggpreview()](https://github.com/tjmahr/tjmisc): preview your plots before knitting
+- [RMarkdown: notebooks vs. documents](https://bookdown.org/yihui/rmarkdown/notebook.html): Notebooks allow a special execution mode of R Markdown that allows you to see the results of your chunks in the Source pane as you go. All .Rmd files can be rendered as notebooks and vice versa.
+
+
+# Thank you!!!
